@@ -14,10 +14,10 @@ namespace PROCON.CONTROLADOR.USUARIO
         //verificar el usuario que incio la sesion
         public int verificarUsuario(string log, string pass)
         {
-            string usu_cod = ""; string nombre = ""; string usu_log = ""; int usu_tipo = 0; int nivel = 0;
+            int id = 0; string nombres = ""; 
             MySqlConnection cnn = base.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * from tranx_usu where usu_log='" + log + "' and usu_pass = '" + pass + "' and estatus=1";
+            comando.CommandText = "SELECT * from usuario where usuario='" + log + "' and clave = '" + pass + "' and nivel>0";
             int total = Convert.ToInt16(comando.ExecuteScalar());
 
 
@@ -29,18 +29,11 @@ namespace PROCON.CONTROLADOR.USUARIO
 
                 while (resultado.Read())
                 {
-                    usu_cod = resultado["usu_cod"].ToString();
-                    nombre = resultado["usu_mon"].ToString();
-                    usu_log = resultado["usu_log"].ToString();
-                    usu_tipo = Convert.ToInt32(resultado["usu_tipo"].ToString());
-                    nivel = Convert.ToInt32(resultado["usu_nivel"].ToString());
-                    string ccolor = resultado["colorformulario"].ToString();
-
-
-                    Color c = ColorTranslator.FromHtml(ccolor); //Aqui le pasas el string que define el color
-
+                    id = Convert.ToInt16( resultado["id"].ToString());
+                    nombres = resultado["nombres"].ToString();
 
                     /*
+                     *  Color c = ColorTranslator.FromHtml(ccolor); //Aqui le pasas el string que define el color
                     sesion.AUTOFORMPACIENTE = resultado["autoformpaciente"].ToString();
                     sesion.CODUSUARIOSESION = Convert.ToInt32(usu_cod.ToString());
                     sesion.NOMBREUSUARIOSESION = nombre.ToString();

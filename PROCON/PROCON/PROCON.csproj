@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CONEXION\Conexion.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
+    <Compile Include="CONTROLADOR\SESION\sesion.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
