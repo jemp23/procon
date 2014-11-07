@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PROCON
+namespace PROCON.VISTA.SESION
 {
-    public partial class Form1 : Form
+    public partial class claveConfigurarConexion : Form
     {
-        public Form1()
+        public claveConfigurarConexion()
         {
             InitializeComponent();
         }

@@ -1,1 +1,13 @@
 D:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.exe.config
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.exe
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.pdb
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.exe
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.pdb
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
