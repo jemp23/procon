@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Data;
+using MySql.Data.MySqlClient;
+using PROCON.CONEXION;
 
 namespace PROCON.CONTROLADOR.SESION
 {
-    public class sesion
+    public class sesion 
     {
         public static int CODUSUARIOSESION = 0; //codigo del usuario que tiene la sesion
         public static string NOMBREUSUARIOSESION = ""; //NOMBRE DEL USUARIO QUE INICIO LA SESION
@@ -34,6 +37,47 @@ namespace PROCON.CONTROLADOR.SESION
         //VARIABLES DEL SISTEMA
         public static string NOMBREAPLICACION = "PROCON";//DATOS DEL PROGRAMA
         public static string LICENCIAAPLICACION = "PROCON 20140101-001";
+
+        public static DataSet listarMenu()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT * FROM modulos");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
 
 
 
