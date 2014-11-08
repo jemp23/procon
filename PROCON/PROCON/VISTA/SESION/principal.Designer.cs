@@ -34,11 +34,14 @@
             // 
             // splitter1
             // 
+            this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(226, 807);
+            this.splitter1.Size = new System.Drawing.Size(50, 807);
             this.splitter1.TabIndex = 2;
             this.splitter1.TabStop = false;
+            this.splitter1.MouseEnter += new System.EventHandler(this.splitter1_MouseEnter);
+            this.splitter1.MouseLeave += new System.EventHandler(this.splitter1_MouseLeave);
             // 
             // treeView1
             // 
@@ -46,12 +49,14 @@
             this.treeView1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.ForeColor = System.Drawing.Color.Gray;
             this.treeView1.HotTracking = true;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Location = new System.Drawing.Point(0, 59);
             this.treeView1.Name = "treeView1";
             this.treeView1.Scrollable = false;
-            this.treeView1.Size = new System.Drawing.Size(226, 810);
+            this.treeView1.Size = new System.Drawing.Size(226, 751);
             this.treeView1.TabIndex = 3;
+            this.treeView1.Visible = false;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
+            this.treeView1.MouseLeave += new System.EventHandler(this.treeView1_MouseLeave);
             // 
             // principal
             // 

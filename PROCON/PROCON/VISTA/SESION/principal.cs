@@ -81,9 +81,8 @@ namespace PROCON.VISTA.SESION
                 { 
                     case "USUARIO":
 
-                        USUARIO.usuario fm = new USUARIO.usuario();
-                        fm.Show();
-
+                        USUARIO.usuario.DefInstance.MdiParent = this;
+                        USUARIO.usuario.DefInstance.Show();
                         break;
 
                     default:
@@ -116,12 +115,32 @@ namespace PROCON.VISTA.SESION
             try
             {
 
-                treeView1.Width = 50;
+                treeView1.Visible = false;
+                splitter1.Width = 50;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void splitter1_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+
+                treeView1.Visible = true;
+                splitter1.Width = 226;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void splitter1_MouseLeave(object sender, EventArgs e)
+        {
+
         }
     }
 }
