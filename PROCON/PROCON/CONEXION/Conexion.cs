@@ -10,8 +10,6 @@ namespace PROCON.CONEXION
         //declaro los atributos de la conexion
         MySqlConnection Cnn         =   new MySqlConnection();
         public bool estatusConexion = false;
-
-
         public MySqlConnection getConexion ()
             {
             try
@@ -40,7 +38,6 @@ namespace PROCON.CONEXION
             }
             return Cnn;
             }
-
         public MySqlConnection getConexion2()
         {
             try
@@ -58,7 +55,6 @@ namespace PROCON.CONEXION
             }
             return Cnn;
         }
-
     }
 }
 

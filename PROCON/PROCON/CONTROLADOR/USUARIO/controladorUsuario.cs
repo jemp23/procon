@@ -6,6 +6,8 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Drawing;
 using System.Net;
+using PROCON.CONEXION;
+using PROCON.MODELO;
 
 namespace PROCON.CONTROLADOR.USUARIO
 {
@@ -93,6 +95,181 @@ namespace PROCON.CONTROLADOR.USUARIO
 
 
             return total;
+        }
+
+        //metodos comunes en todos los formularios
+        public static DataSet examinarPorIdDataset()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT * FROM usuario");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static DataSet ListarDataGridDataset()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT id, nombres, apellidos, usuario, correo, celular from usuario");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+
+            connection.Close();
+            return ds;
+        }
+        public int modificar(entidadUsuario usuario)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "UPDATE usuario set nombres = @nombres, apellidos = @apellidos, correo = @correo, " +
+                "celular = @celular, usuario = @usuario, clave = @clave, nivel = @nivel " +
+                "WHERE id = @id";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@nombres", usuario.Nombres);
+                comando.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
+                comando.Parameters.AddWithValue("@correo", usuario.Correo);
+                comando.Parameters.AddWithValue("@celular", usuario.Celular);
+                comando.Parameters.AddWithValue("@usuario", usuario.Usuario);
+                comando.Parameters.AddWithValue("@clave", usuario.Clave);
+                comando.Parameters.AddWithValue("@nivel", usuario.Nivel);
+                comando.Parameters.AddWithValue("@id", usuario.Id);
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("error de UPDATE " + ex);
+                return 0;
+            }
+        }
+        //guardar cambios en el registro
+        public int nuevo(entidadUsuario usuario)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "INSERT INTO usuario " +
+                " (nombres, apellidos, correo, celular, usuario, clave, nivel ) " +
+                " VALUES " +
+                " (@nombres, @apellidos, @correo, @celular, @usuario, @clave, @nivel ) " +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@nombres", usuario.Nombres);
+                comando.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
+                comando.Parameters.AddWithValue("@correo", usuario.Correo);
+                comando.Parameters.AddWithValue("@celular", usuario.Celular);
+                comando.Parameters.AddWithValue("@usuario", usuario.Usuario);
+                comando.Parameters.AddWithValue("@clave", usuario.Clave);
+                comando.Parameters.AddWithValue("@nivel", usuario.Nivel);
+                comando.Parameters.AddWithValue("@id", usuario.Id);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        //guardar cambios en el registro
+        public Int32 idUltimoRegistrado()
+        {
+            try
+            {
+                Int32 ULTIMO = 1;
+                MySqlConnection cnn = base.getConexion();
+                MySqlCommand comando = cnn.CreateCommand();
+
+                comando.CommandText = "SELECT Max(usuario.id) AS ULTIMO FROM usuario";
+
+
+                MySqlDataReader resultado = comando.ExecuteReader();
+                while (resultado.Read())
+                {
+                    ULTIMO =  Convert.ToInt32( resultado["ULTIMO"].ToString());
+                }
+                resultado.Close();
+                cnn.Close();
+
+                return ULTIMO;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

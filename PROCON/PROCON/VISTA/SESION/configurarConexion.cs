@@ -16,21 +16,32 @@ namespace PROCON.VISTA.SESION
         {
             InitializeComponent();
         }
-
         private void tabularEnter(object sender, KeyPressEventArgs e)
         {
+            try
+            {
             if (e.KeyChar == (char)(Keys.Enter))
             {
                 e.Handled = true;
                 SendKeys.Send("{TAB}");
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
             Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             String server = this.txtDireccion.Text;
