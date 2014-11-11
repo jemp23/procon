@@ -205,7 +205,7 @@ namespace PROCON.CONTROLADOR.USUARIO
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "UPDATE tipo_usuario set descripcion = @descripcion" +
+                string query = "UPDATE tipo_usuario set descripcion = @descripcion " +
                 "WHERE id = @id";
 
                 comando = new MySqlCommand(query, conexion);

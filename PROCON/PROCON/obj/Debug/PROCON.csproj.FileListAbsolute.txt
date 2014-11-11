@@ -13,3 +13,18 @@ D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexio
 D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
 D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
 D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.exe
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.pdb
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.exe
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.pdb
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources

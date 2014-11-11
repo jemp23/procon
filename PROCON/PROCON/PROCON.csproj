@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -49,9 +49,12 @@
     <Compile Include="CONEXION\Conexion.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
     <Compile Include="CONTROLADOR\SESION\sesion.cs" />
+    <Compile Include="CONTROLADOR\USUARIO\controladorModulos.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorTipoUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuarioTipoUsuario.cs" />
+    <Compile Include="CONTROLADOR\USUARIO\entidadModulostusuario.cs" />
+    <Compile Include="MODELO\entidadModulos.cs" />
     <Compile Include="MODELO\entidadTipoUsuario.cs" />
     <Compile Include="MODELO\entidadUsuario.cs" />
     <Compile Include="MODELO\entidadUsuarioTipoUsuario.cs" />
@@ -75,6 +78,12 @@
     </Compile>
     <Compile Include="VISTA\SESION\configurarConexion.Designer.cs">
       <DependentUpon>configurarConexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\SESION\modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\SESION\modulos.Designer.cs">
+      <DependentUpon>modulos.cs</DependentUpon>
     </Compile>
     <Compile Include="VISTA\SESION\principal.cs">
       <SubType>Form</SubType>
@@ -112,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\SESION\configurarConexion.resx">
       <DependentUpon>configurarConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\SESION\modulos.resx">
+      <DependentUpon>modulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\SESION\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>

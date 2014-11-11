@@ -101,6 +101,11 @@ namespace PROCON.VISTA.SESION
 
                 switch (nodoSeleccionado)
                 { 
+                    case "MODULOS":
+                        SESION.modulos.DefInstance.MdiParent = this;
+                        SESION.modulos.DefInstance.Show();
+                        break;
+
                     case "USUARIO":
 
                         USUARIO.usuario.DefInstance.MdiParent = this;
