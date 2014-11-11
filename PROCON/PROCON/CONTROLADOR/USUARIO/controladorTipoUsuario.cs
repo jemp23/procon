@@ -116,5 +116,168 @@ namespace PROCON.CONTROLADOR.USUARIO
             cnn.Close();
             return max;
         }
+
+        //metodos comunes en todos los formularios
+        public static DataSet examinarPorIdDataset()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT * FROM tipo_usuario");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static DataSet ListarDataGridDataset()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT id, descripcion from tipo_usuario");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+
+            connection.Close();
+            return ds;
+        }
+        public int modificar(entidadTipoUsuario tusuario)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "UPDATE tipo_usuario set descripcion = @descripcion" +
+                "WHERE id = @id";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@descripcion", tusuario.Descripcion);
+                comando.Parameters.AddWithValue("@id", tusuario.Id);
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("error de UPDATE " + ex);
+                return 0;
+            }
+        }
+        //guardar cambios en el registro
+        public int nuevo(entidadTipoUsuario tusuario)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "INSERT INTO tipo_usuario " +
+                " (descripcion) " +
+                " VALUES " +
+                " (@descripcion) " +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@descripcion", tusuario.Descripcion);
+                comando.Parameters.AddWithValue("@id", tusuario.Id);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        //guardar cambios en el registro
+        public Int32 idUltimoRegistrado()
+        {
+            try
+            {
+                Int32 ULTIMO = 1;
+                MySqlConnection cnn = base.getConexion();
+                MySqlCommand comando = cnn.CreateCommand();
+
+                comando.CommandText = "SELECT Max(tipo_usuario.id) AS ULTIMO FROM tipo_usuario";
+
+
+                MySqlDataReader resultado = comando.ExecuteReader();
+                while (resultado.Read())
+                {
+                    ULTIMO = Convert.ToInt32(resultado["ULTIMO"].ToString());
+                }
+                resultado.Close();
+                cnn.Close();
+
+                return ULTIMO;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        ///metodos comunes en todos los formularios
     }
 }

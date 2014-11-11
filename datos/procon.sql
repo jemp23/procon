@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-11-2014 a las 02:35:17
+-- Tiempo de generación: 11-11-2014 a las 02:29:31
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.16
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `modulos` (
   `superior` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `superior` (`superior`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `modulos`
@@ -102,12 +102,15 @@ CREATE TABLE IF NOT EXISTS `modulos` (
 INSERT INTO `modulos` (`id`, `descripcion`, `direccion`, `imagen`, `interfaz`, `orden`, `superior`) VALUES
 (1, 'CONFIGURACION', '', '1', 1, 1, 0),
 (2, 'PRODUCCION', 'PRODUCCION', '4', 1, 2, 0),
-(3, 'CONTROL DE USUARIOS', 'USUARIO', NULL, 1, 3, 1),
+(3, 'CONTROL DE USUARIOS', 'USUARIO', NULL, 1, 3, 9),
 (4, 'CREAR ORDEN PRODUCCION', 'CREA', NULL, 1, 4, 2),
 (5, 'CMR', 'CMR', NULL, 1, 5, 0),
 (6, 'CREAR OPORTUNIDAD', 'OPORTUNIDAD', NULL, 1, 6, 5),
 (7, 'PRUEBA', 'PRUEBA', NULL, 1, 7, 6),
-(8, 'PRUEBA2', 'PRUEBA2', NULL, 1, 8, 7);
+(8, 'PRUEBA2', 'PRUEBA2', NULL, 1, 8, 7),
+(9, 'USUARIO', '', '5', 1, 3, 1),
+(10, 'PERFIL DE USUARIOS', 'TIPOUSUARIO', NULL, 1, 2, 9),
+(11, 'MODULOS DEL SISTEMA', 'MODULOS', NULL, 1, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
@@ -168,7 +171,8 @@ INSERT INTO `tipo_usuario` (`id`, `descripcion`) VALUES
 (2, 'JEFE PRODUCCION'),
 (3, 'OPERADOR'),
 (4, 'DIRECTIVO'),
-(5, 'JEFE ADMINISTRACION');
+(5, 'JEFE ADMINISTRACION'),
+(6, 'AISTENTE DE VENTAS');
 
 -- --------------------------------------------------------
 

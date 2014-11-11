@@ -41,7 +41,16 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tabFormulario = new System.Windows.Forms.TabControl();
             this.tabDatos = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbNivel = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtModificando = new System.Windows.Forms.TextBox();
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.TextBox();
@@ -63,17 +72,12 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dgListado = new System.Windows.Forms.DataGridView();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbNivel = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewLinkColumn();
             this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.NUEVOREGISTRO = new System.Windows.Forms.ToolStripButton();
             this.PRIMERO = new System.Windows.Forms.ToolStripButton();
             this.ANTERIOR = new System.Windows.Forms.ToolStripButton();
@@ -84,20 +88,16 @@
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.BUSCAR = new System.Windows.Forms.ToolStripButton();
             this.salir = new System.Windows.Forms.ToolStripButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tabFormulario.SuspendLayout();
             this.tabDatos.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -196,7 +196,7 @@
             // 
             this.tabFormulario.Controls.Add(this.tabDatos);
             this.tabFormulario.Controls.Add(this.tabListado);
-            this.tabFormulario.Location = new System.Drawing.Point(5, 77);
+            this.tabFormulario.Location = new System.Drawing.Point(1, 79);
             this.tabFormulario.Name = "tabFormulario";
             this.tabFormulario.SelectedIndex = 0;
             this.tabFormulario.Size = new System.Drawing.Size(1001, 381);
@@ -213,6 +213,73 @@
             this.tabDatos.Size = new System.Drawing.Size(993, 355);
             this.tabDatos.TabIndex = 0;
             this.tabDatos.Text = "DATOS";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.treeView2);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.Location = new System.Drawing.Point(453, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(540, 319);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PERFIL DE ACCESO";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Navy;
+            this.label10.Location = new System.Drawing.Point(293, 38);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(156, 19);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "PERFILES DISPONIBLES";
+            // 
+            // treeView2
+            // 
+            this.treeView2.AllowDrop = true;
+            this.treeView2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.treeView2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView2.ForeColor = System.Drawing.Color.Gray;
+            this.treeView2.HotTracking = true;
+            this.treeView2.Location = new System.Drawing.Point(288, 59);
+            this.treeView2.Name = "treeView2";
+            this.treeView2.Scrollable = false;
+            this.treeView2.Size = new System.Drawing.Size(170, 244);
+            this.treeView2.TabIndex = 42;
+            this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Navy;
+            this.label9.Location = new System.Drawing.Point(35, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 19);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "PERFILES DEL USUARIO";
+            // 
+            // treeView1
+            // 
+            this.treeView1.AllowDrop = true;
+            this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.treeView1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.ForeColor = System.Drawing.Color.Gray;
+            this.treeView1.HotTracking = true;
+            this.treeView1.Location = new System.Drawing.Point(30, 59);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Scrollable = false;
+            this.treeView1.Size = new System.Drawing.Size(170, 244);
+            this.treeView1.TabIndex = 4;
+            this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView1_DragDrop);
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // groupBox1
             // 
@@ -245,6 +312,50 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DEL USUARIO";
+            // 
+            // cmbNivel
+            // 
+            this.cmbNivel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNivel.FormattingEnabled = true;
+            this.cmbNivel.Location = new System.Drawing.Point(146, 277);
+            this.cmbNivel.Name = "cmbNivel";
+            this.cmbNivel.Size = new System.Drawing.Size(191, 26);
+            this.cmbNivel.TabIndex = 10;
+            this.cmbNivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            this.cmbNivel.Leave += new System.EventHandler(this.cmbNivel_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(96, 280);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 18);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "NIVEL";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.AcceptsReturn = true;
+            this.txtUsuario.AcceptsTab = true;
+            this.txtUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(146, 183);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(191, 27);
+            this.txtUsuario.TabIndex = 7;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(89, 191);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 19);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "LOGIN";
             // 
             // txtModificando
             // 
@@ -488,50 +599,6 @@
             this.dgListado.TabIndex = 0;
             this.dgListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListado_CellContentClick);
             // 
-            // txtUsuario
-            // 
-            this.txtUsuario.AcceptsReturn = true;
-            this.txtUsuario.AcceptsTab = true;
-            this.txtUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(146, 183);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(191, 27);
-            this.txtUsuario.TabIndex = 7;
-            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(89, 191);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 19);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "LOGIN";
-            // 
-            // cmbNivel
-            // 
-            this.cmbNivel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbNivel.FormattingEnabled = true;
-            this.cmbNivel.Location = new System.Drawing.Point(146, 277);
-            this.cmbNivel.Name = "cmbNivel";
-            this.cmbNivel.Size = new System.Drawing.Size(191, 26);
-            this.cmbNivel.TabIndex = 10;
-            this.cmbNivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
-            this.cmbNivel.Leave += new System.EventHandler(this.cmbNivel_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(96, 280);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 18);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "NIVEL";
-            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -675,73 +742,6 @@
             this.salir.Text = "toolStripButton1";
             this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.treeView2);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox2.Location = new System.Drawing.Point(453, 15);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 319);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "PERFIL DE ACCESO";
-            // 
-            // treeView1
-            // 
-            this.treeView1.AllowDrop = true;
-            this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.treeView1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.ForeColor = System.Drawing.Color.Gray;
-            this.treeView1.HotTracking = true;
-            this.treeView1.Location = new System.Drawing.Point(30, 59);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Scrollable = false;
-            this.treeView1.Size = new System.Drawing.Size(170, 244);
-            this.treeView1.TabIndex = 4;
-            this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView1_DragDrop);
-            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(35, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(160, 19);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "PERFILES DEL USUARIO";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(293, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 19);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "PERFILES DISPONIBLES";
-            // 
-            // treeView2
-            // 
-            this.treeView2.AllowDrop = true;
-            this.treeView2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.treeView2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView2.ForeColor = System.Drawing.Color.Gray;
-            this.treeView2.HotTracking = true;
-            this.treeView2.Location = new System.Drawing.Point(288, 59);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Scrollable = false;
-            this.treeView2.Size = new System.Drawing.Size(170, 244);
-            this.treeView2.TabIndex = 42;
-            this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
-            // 
             // usuario
             // 
             this.AllowDrop = true;
@@ -764,14 +764,14 @@
             this.bindingNavigator1.PerformLayout();
             this.tabFormulario.ResumeLayout(false);
             this.tabDatos.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabListado.ResumeLayout(false);
             this.tabListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -82,6 +82,12 @@
     <Compile Include="VISTA\SESION\principal.Designer.cs">
       <DependentUpon>principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="VISTA\USUARIO\tipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\USUARIO\tipoUsuario.Designer.cs">
+      <DependentUpon>tipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="VISTA\USUARIO\usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\SESION\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\USUARIO\tipoUsuario.resx">
+      <DependentUpon>tipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\USUARIO\usuario.resx">
       <DependentUpon>usuario.cs</DependentUpon>

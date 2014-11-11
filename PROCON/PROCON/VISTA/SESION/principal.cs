@@ -106,12 +106,18 @@ namespace PROCON.VISTA.SESION
                         USUARIO.usuario.DefInstance.MdiParent = this;
                         USUARIO.usuario.DefInstance.Show();
                         break;
+
+                    case "TIPOUSUARIO":
+                        USUARIO.tipoUsuario.DefInstance.MdiParent = this;
+                        USUARIO.tipoUsuario.DefInstance.Show();
+                        break;
+
                     case "salir":
                         Application.Exit();
                         break;
 
                     default:
-                        MessageBox.Show("ESTE MENU NO TIENE FORMULARIO ASIGNADO", sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //MessageBox.Show("ESTE MENU NO TIENE FORMULARIO ASIGNADO", sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
 

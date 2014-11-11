@@ -271,5 +271,6 @@ namespace PROCON.CONTROLADOR.USUARIO
                 return 0;
             }
         }
+        ///metodos comunes en todos los formularios
     }
 }
