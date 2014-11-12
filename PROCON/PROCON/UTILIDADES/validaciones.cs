@@ -59,7 +59,7 @@ namespace PROCON.UTILIDADES
 
         }
 
-        //para validar celulares
+        //para validar moneda
         public static bool IsValidoMoneda(string moneda)
         {
             try
@@ -83,6 +83,52 @@ namespace PROCON.UTILIDADES
             }
 
 
+        }
+        //para validar entero
+        public static bool IsValidoEntero(string numero)
+        {
+            try
+            {
+                //si estan activadas las expresionesregulares, valida
+                //sino devuelve todo como valido
+                //a menos que exista un error
+                if (sesion.ACTIVAREXPRESIONESREGULARESPARAVALIDAR == 1)
+                {
+                    return Regex.IsMatch(numero, @"^([0-9]*)$");
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        //para validar rif
+        public static bool IsValidoRif(string numero)
+        {
+            try
+            {
+                //si estan activadas las expresionesregulares, valida
+                //sino devuelve todo como valido
+                //a menos que exista un error
+                if (sesion.ACTIVAREXPRESIONESREGULARESPARAVALIDAR == 1)
+                {
+                    return Regex.IsMatch(numero, @"^([V|J|G|E][-]?[ 0-9]{8}[-]?[0-9])$");
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

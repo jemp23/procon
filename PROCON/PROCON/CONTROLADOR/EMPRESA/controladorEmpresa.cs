@@ -10,12 +10,12 @@ using PROCON.MODELO;
 using System.Windows.Forms;
 
 
-namespace PROCON.CONTROLADOR.USUARIO
+namespace PROCON.CONTROLADOR.EMPRESA
 {
-    class controladorModulos : abstractControlador
+    class controladorEmpresa : abstractControlador
     {
         //metodos comunes en todos los formularios
-        public static DataSet examinarPorIdDataset()
+        public static DataSet examinarPorIdDataset() //trae una copia de la tabla
         {
             MySqlConnection connection;
             MySqlCommand cmd;
@@ -28,7 +28,7 @@ namespace PROCON.CONTROLADOR.USUARIO
 
             try
             {
-                cmd = new MySqlCommand("SELECT * FROM modulos");
+                cmd = new MySqlCommand("SELECT * FROM empresa");
                 cmd.CommandType = CommandType.Text;
                 da.SelectCommand = (MySqlCommand)cmd;
 
@@ -69,7 +69,7 @@ namespace PROCON.CONTROLADOR.USUARIO
 
             try
             {
-                cmd = new MySqlCommand("SELECT id, descripcion from modulos");
+                cmd = new MySqlCommand("SELECT id, sede, nombre from empresa");
                 cmd.CommandType = CommandType.Text;
                 da.SelectCommand = (MySqlCommand)cmd;
                 Conexion con = new Conexion();
@@ -97,26 +97,26 @@ namespace PROCON.CONTROLADOR.USUARIO
             connection.Close();
             return ds;
         }
-        public int nuevo(entidadModulos entModulos)
+        public int nuevo(entidadEmpresa entEmpresa)
         {
             try
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "INSERT INTO modulos " +
-                " (descripcion, direccion, imagen, interfaz, orden, superior) " +
+                string query = "INSERT INTO empresa " +
+                " (sede, nombre, rif, direccion, telefono, correo) " +
                 " VALUES " +
-                " (@descripcion, @direccion, @imagen, @interfaz, @orden, @superior) " +
+                " (@sede, @nombre, @rif, @direccion, @telefono, @correo) " +
                 ";";
 
                 comando = new MySqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@descripcion", entModulos.Descripcion);
-                comando.Parameters.AddWithValue("@direccion", entModulos.Direccion);
-                comando.Parameters.AddWithValue("@imagen", entModulos.Imagen);
-                comando.Parameters.AddWithValue("@interfaz", entModulos.Interfaz);
-                comando.Parameters.AddWithValue("@orden",entModulos.Orden);
-                comando.Parameters.AddWithValue("@superior",entModulos.Superior);
-                comando.Parameters.AddWithValue("@id", entModulos.Id);
+                comando.Parameters.AddWithValue("@sede", entEmpresa.Sede);
+                comando.Parameters.AddWithValue("@nombre", entEmpresa.Nombre);
+                comando.Parameters.AddWithValue("@rif", entEmpresa.Rif);
+                comando.Parameters.AddWithValue("@direccion", entEmpresa.Direccion);
+                comando.Parameters.AddWithValue("@telefono", entEmpresa.Telefono);
+                comando.Parameters.AddWithValue("@correo", entEmpresa.Correo);
+                comando.Parameters.AddWithValue("@id", entEmpresa.Id);
 
                 int Resultado = comando.ExecuteNonQuery();
 
@@ -129,23 +129,24 @@ namespace PROCON.CONTROLADOR.USUARIO
                 return 0;
             }
         }
-        public int modificar(entidadModulos entModulos)
+
+        public int modificar(entidadEmpresa entEmpresa) //guardar cambios
         {
             try
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "UPDATE modulos set descripcion = @descripcion, direccion=@direccion, imagen=@imagen, interfaz=@interfaz, orden=@orden, superior=@superior " +
+                string query = "UPDATE empresa set sede = @sede, nombre=@nombre, rif=@rif, direccion=@direccion, telefono=@telefono, correo=@correo " +
                 "WHERE id = @id";
 
                 comando = new MySqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@descripcion", entModulos.Descripcion);
-                comando.Parameters.AddWithValue("@direccion", entModulos.Direccion);
-                comando.Parameters.AddWithValue("@imagen", entModulos.Imagen);
-                comando.Parameters.AddWithValue("@interfaz", entModulos.Interfaz);
-                comando.Parameters.AddWithValue("@orden", entModulos.Orden);
-                comando.Parameters.AddWithValue("@superior", entModulos.Superior);
-                comando.Parameters.AddWithValue("@id", entModulos.Id);
+                comando.Parameters.AddWithValue("@sede", entEmpresa.Sede);
+                comando.Parameters.AddWithValue("@nombre", entEmpresa.Nombre);
+                comando.Parameters.AddWithValue("@rif", entEmpresa.Rif);
+                comando.Parameters.AddWithValue("@direccion", entEmpresa.Direccion);
+                comando.Parameters.AddWithValue("@telefono", entEmpresa.Telefono);
+                comando.Parameters.AddWithValue("@correo", entEmpresa.Correo);
+                comando.Parameters.AddWithValue("@id", entEmpresa.Id);
                 int Resultado = comando.ExecuteNonQuery();
 
                 conexion.Close();
@@ -158,9 +159,8 @@ namespace PROCON.CONTROLADOR.USUARIO
                 return 0;
             }
         }
-
-             //guardar cambios en el registro
-        public Int32 idUltimoRegistrado()
+        
+        public Int32 idUltimoRegistrado()// me muestre el ultimo id que se registro
         {
             try
             {
@@ -168,7 +168,7 @@ namespace PROCON.CONTROLADOR.USUARIO
                 MySqlConnection cnn = base.getConexion();
                 MySqlCommand comando = cnn.CreateCommand();
 
-                comando.CommandText = "SELECT Max(modulos.id) AS ULTIMO FROM modulos";
+                comando.CommandText = "SELECT Max(empresa.id) AS ULTIMO FROM empresa";
 
 
                 MySqlDataReader resultado = comando.ExecuteReader();
@@ -187,23 +187,23 @@ namespace PROCON.CONTROLADOR.USUARIO
             }
         }
 
-        public static List<entidadModulos> listar() //me muestra la lista de un registro
+        public static List<entidadEmpresa> listar() //me muestra la lista de un registro
         {
-            List<entidadModulos> Lista = new List<entidadModulos>();
+            List<entidadEmpresa> Lista = new List<entidadEmpresa>();
 
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM modulos ORDER BY descripcion;";
+            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
             while (lector.Read())
             {
-                entidadModulos entidad = new entidadModulos();
+                entidadEmpresa entidad = new entidadEmpresa();
 
-                entidad.Id = Convert.ToInt16( lector["id"].ToString());
-                entidad.Descripcion = lector["descripcion"].ToString();
+                entidad.Id = Convert.ToInt16(lector["id"].ToString());
+                entidad.Nombre = lector["Nombre"].ToString();
                 Lista.Add(entidad);
             }
             lector.Close();
@@ -218,7 +218,7 @@ namespace PROCON.CONTROLADOR.USUARIO
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM modulos ORDER BY descripcion;";
+            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
@@ -227,11 +227,15 @@ namespace PROCON.CONTROLADOR.USUARIO
 
             while (lector.Read())
             {
-                coleccion.Add(lector["descripcion"].ToString());
+                coleccion.Add(lector["nombre"].ToString());
             }
             lector.Close();
             cnn.Close();
             return coleccion;
         }
+
+
+
+
     }
 }

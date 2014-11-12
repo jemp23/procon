@@ -33,6 +33,7 @@
             this.tabFormulario = new System.Windows.Forms.TabControl();
             this.tabDatos = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtImagen = new System.Windows.Forms.TextBox();
             this.cmbSuperior = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,18 +75,17 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salir = new System.Windows.Forms.ToolStripButton();
             this.label18 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabFormulario.SuspendLayout();
             this.tabDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFormulario
@@ -136,7 +136,16 @@
             this.groupBox1.Size = new System.Drawing.Size(345, 319);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATOS DEL PERFIL";
+            this.groupBox1.Text = "DATOS DEL MODULO";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(224, 161);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
             // 
             // txtImagen
             // 
@@ -329,7 +338,7 @@
             this.txtFiltro.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.Location = new System.Drawing.Point(106, 6);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(491, 27);
+            this.txtFiltro.Size = new System.Drawing.Size(455, 27);
             this.txtFiltro.TabIndex = 41;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
@@ -352,9 +361,9 @@
             this.dgListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.descripcion});
-            this.dgListado.Location = new System.Drawing.Point(6, 40);
+            this.dgListado.Location = new System.Drawing.Point(0, 36);
             this.dgListado.Name = "dgListado";
-            this.dgListado.Size = new System.Drawing.Size(979, 380);
+            this.dgListado.Size = new System.Drawing.Size(567, 303);
             this.dgListado.TabIndex = 0;
             this.dgListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListado_CellContentClick);
             // 
@@ -561,7 +570,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(599, 39);
             this.label18.TabIndex = 43;
-            this.label18.Text = "Control de Perfiles";
+            this.label18.Text = "Control de Modulos";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imageList1
@@ -574,15 +583,6 @@
             this.imageList1.Images.SetKeyName(3, "3.ico");
             this.imageList1.Images.SetKeyName(4, "4.ico");
             this.imageList1.Images.SetKeyName(5, "5.ico");
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(224, 161);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 60;
-            this.pictureBox1.TabStop = false;
             // 
             // modulos
             // 
@@ -602,6 +602,7 @@
             this.tabDatos.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabListado.ResumeLayout(false);
             this.tabListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).EndInit();
@@ -609,7 +610,6 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -117,6 +117,11 @@ namespace PROCON.VISTA.SESION
                         USUARIO.tipoUsuario.DefInstance.Show();
                         break;
 
+                    case "EMPRESA":
+                        EMPRESA.empresas.DefInstance.MdiParent = this;
+                        EMPRESA.empresas.DefInstance.Show();
+                        break;
+
                     case "salir":
                         Application.Exit();
                         break;
