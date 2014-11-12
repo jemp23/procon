@@ -7,6 +7,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using PROCON.CONEXION;
 using PROCON.MODELO;
+using System.Windows.Forms;
 
 
 namespace PROCON.CONTROLADOR.USUARIO
@@ -134,7 +135,7 @@ namespace PROCON.CONTROLADOR.USUARIO
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "UPDATE modulos set descripcion = @descripcion, direccion=@direccion, imagen=@imagen, interfaz=@interfaz, orden=@orden, superior=@superior" +
+                string query = "UPDATE modulos set descripcion = @descripcion, direccion=@direccion, imagen=@imagen, interfaz=@interfaz, orden=@orden, superior=@superior " +
                 "WHERE id = @id";
 
                 comando = new MySqlCommand(query, conexion);
@@ -186,5 +187,51 @@ namespace PROCON.CONTROLADOR.USUARIO
             }
         }
 
+        public static List<entidadModulos> listar()
+        {
+            List<entidadModulos> Lista = new List<entidadModulos>();
+
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT * FROM modulos ORDER BY descripcion;";
+            MySqlDataReader lector = comando.ExecuteReader();
+
+
+            while (lector.Read())
+            {
+                entidadModulos entidad = new entidadModulos();
+
+                entidad.Id = Convert.ToInt16( lector["id"].ToString());
+                entidad.Descripcion = lector["descripcion"].ToString();
+                Lista.Add(entidad);
+            }
+            lector.Close();
+            cnn.Close();
+            return Lista;
+        }
+        public static AutoCompleteStringCollection autocompletar()
+        {
+
+
+
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT * FROM modulos ORDER BY descripcion;";
+            MySqlDataReader lector = comando.ExecuteReader();
+
+
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+
+            while (lector.Read())
+            {
+                coleccion.Add(lector["descripcion"].ToString());
+            }
+            lector.Close();
+            cnn.Close();
+            return coleccion;
+        }
     }
 }

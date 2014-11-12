@@ -1,0 +1,8 @@
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.xml
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.pdb
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csprojResolveAssemblyReference.cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.pdb

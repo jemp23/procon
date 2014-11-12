@@ -33,6 +33,16 @@
             this.tabFormulario = new System.Windows.Forms.TabControl();
             this.tabDatos = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.cmbSuperior = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtOrden = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbInterfaz = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtModificando = new System.Windows.Forms.TextBox();
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -65,16 +75,8 @@
             this.salir = new System.Windows.Forms.ToolStripButton();
             this.label18 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbInterfaz = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtOrden = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbSuperior = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabFormulario.SuspendLayout();
             this.tabDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -83,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFormulario
@@ -109,6 +112,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtImagen);
             this.groupBox1.Controls.Add(this.cmbSuperior);
             this.groupBox1.Controls.Add(this.label6);
@@ -133,6 +137,115 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DEL PERFIL";
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.AcceptsReturn = true;
+            this.txtImagen.AcceptsTab = true;
+            this.txtImagen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImagen.Location = new System.Drawing.Point(108, 159);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(110, 27);
+            this.txtImagen.TabIndex = 4;
+            this.txtImagen.TextChanged += new System.EventHandler(this.txtImagen_TextChanged_1);
+            this.txtImagen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // cmbSuperior
+            // 
+            this.cmbSuperior.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSuperior.FormattingEnabled = true;
+            this.cmbSuperior.Location = new System.Drawing.Point(108, 220);
+            this.cmbSuperior.Name = "cmbSuperior";
+            this.cmbSuperior.Size = new System.Drawing.Size(222, 26);
+            this.cmbSuperior.TabIndex = 6;
+            this.cmbSuperior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(18, 222);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 19);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "SUPERIOR";
+            // 
+            // txtOrden
+            // 
+            this.txtOrden.AcceptsReturn = true;
+            this.txtOrden.AcceptsTab = true;
+            this.txtOrden.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrden.Location = new System.Drawing.Point(108, 187);
+            this.txtOrden.Name = "txtOrden";
+            this.txtOrden.Size = new System.Drawing.Size(110, 27);
+            this.txtOrden.TabIndex = 5;
+            this.txtOrden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(45, 190);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 19);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "ORDEN";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.Location = new System.Drawing.Point(39, 162);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 19);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "IMAGEN";
+            // 
+            // cmbInterfaz
+            // 
+            this.cmbInterfaz.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbInterfaz.FormattingEnabled = true;
+            this.cmbInterfaz.Location = new System.Drawing.Point(108, 123);
+            this.cmbInterfaz.Name = "cmbInterfaz";
+            this.cmbInterfaz.Size = new System.Drawing.Size(110, 26);
+            this.cmbInterfaz.TabIndex = 3;
+            this.cmbInterfaz.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(31, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 19);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "INTERFAZ";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.AcceptsReturn = true;
+            this.txtDireccion.AcceptsTab = true;
+            this.txtDireccion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(108, 89);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(222, 27);
+            this.txtDireccion.TabIndex = 2;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(19, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 19);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "DIRECCION";
             // 
             // txtModificando
             // 
@@ -183,6 +296,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(222, 27);
             this.txtDescripcion.TabIndex = 1;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabularEnter);
             // 
             // lbldireccion
             // 
@@ -217,6 +331,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(491, 27);
             this.txtFiltro.TabIndex = 41;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // label19
             // 
@@ -241,6 +356,7 @@
             this.dgListado.Name = "dgListado";
             this.dgListado.Size = new System.Drawing.Size(979, 380);
             this.dgListado.TabIndex = 0;
+            this.dgListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListado_CellContentClick);
             // 
             // id
             // 
@@ -300,6 +416,7 @@
             this.NUEVOREGISTRO.RightToLeftAutoMirrorImage = true;
             this.NUEVOREGISTRO.Size = new System.Drawing.Size(34, 34);
             this.NUEVOREGISTRO.Text = "Agregar nuevo";
+            this.NUEVOREGISTRO.Click += new System.EventHandler(this.NUEVOREGISTRO_Click);
             // 
             // totalR
             // 
@@ -339,6 +456,7 @@
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            this.bindingNavigatorPositionItem.TextChanged += new System.EventHandler(this.bindingNavigatorPositionItem_TextChanged);
             // 
             // bindingNavigatorSeparator1
             // 
@@ -387,6 +505,7 @@
             this.MODIFICAR.Size = new System.Drawing.Size(34, 34);
             this.MODIFICAR.Text = "toolStripButton1";
             this.MODIFICAR.ToolTipText = "MODIFICAR ESTE REGISTRO";
+            this.MODIFICAR.Click += new System.EventHandler(this.MODIFICAR_Click);
             // 
             // btnGuardar
             // 
@@ -398,6 +517,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(34, 34);
             this.btnGuardar.Text = "GUARDAR DATOS";
             this.btnGuardar.ToolTipText = "GUARDAR CAMBIOS EN REGISTRO";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -413,6 +533,7 @@
             this.BUSCAR.Size = new System.Drawing.Size(34, 34);
             this.BUSCAR.Text = "toolStripSplitButton1";
             this.BUSCAR.ToolTipText = "BUSCAR UN REGISTRO";
+            this.BUSCAR.Click += new System.EventHandler(this.BUSCAR_Click);
             // 
             // toolStripSeparator2
             // 
@@ -427,6 +548,7 @@
             this.salir.Name = "salir";
             this.salir.Size = new System.Drawing.Size(34, 34);
             this.salir.Text = "toolStripButton1";
+            this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // label18
             // 
@@ -442,108 +564,25 @@
             this.label18.Text = "Control de Perfiles";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtDireccion
+            // imageList1
             // 
-            this.txtDireccion.AcceptsReturn = true;
-            this.txtDireccion.AcceptsTab = true;
-            this.txtDireccion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(108, 89);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(222, 27);
-            this.txtDireccion.TabIndex = 48;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "0.ico");
+            this.imageList1.Images.SetKeyName(1, "1.ico");
+            this.imageList1.Images.SetKeyName(2, "2.png");
+            this.imageList1.Images.SetKeyName(3, "3.ico");
+            this.imageList1.Images.SetKeyName(4, "4.ico");
+            this.imageList1.Images.SetKeyName(5, "5.ico");
             // 
-            // label2
+            // pictureBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(19, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 19);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "DIRECCION";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(31, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 19);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "INTERFAZ";
-            // 
-            // cmbInterfaz
-            // 
-            this.cmbInterfaz.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbInterfaz.FormattingEnabled = true;
-            this.cmbInterfaz.Location = new System.Drawing.Point(108, 123);
-            this.cmbInterfaz.Name = "cmbInterfaz";
-            this.cmbInterfaz.Size = new System.Drawing.Size(110, 26);
-            this.cmbInterfaz.TabIndex = 52;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(39, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 19);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "IMAGEN";
-            // 
-            // txtOrden
-            // 
-            this.txtOrden.AcceptsReturn = true;
-            this.txtOrden.AcceptsTab = true;
-            this.txtOrden.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrden.Location = new System.Drawing.Point(108, 187);
-            this.txtOrden.Name = "txtOrden";
-            this.txtOrden.Size = new System.Drawing.Size(110, 27);
-            this.txtOrden.TabIndex = 55;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(45, 190);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 19);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "ORDEN";
-            // 
-            // cmbSuperior
-            // 
-            this.cmbSuperior.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSuperior.FormattingEnabled = true;
-            this.cmbSuperior.Location = new System.Drawing.Point(108, 220);
-            this.cmbSuperior.Name = "cmbSuperior";
-            this.cmbSuperior.Size = new System.Drawing.Size(222, 26);
-            this.cmbSuperior.TabIndex = 58;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(18, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 19);
-            this.label6.TabIndex = 57;
-            this.label6.Text = "SUPERIOR";
-            // 
-            // txtImagen
-            // 
-            this.txtImagen.AcceptsReturn = true;
-            this.txtImagen.AcceptsTab = true;
-            this.txtImagen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImagen.Location = new System.Drawing.Point(108, 159);
-            this.txtImagen.Name = "txtImagen";
-            this.txtImagen.Size = new System.Drawing.Size(110, 27);
-            this.txtImagen.TabIndex = 59;
+            this.pictureBox1.Location = new System.Drawing.Point(224, 161);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
             // 
             // modulos
             // 
@@ -570,6 +609,7 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,5 +662,7 @@
         private System.Windows.Forms.TextBox txtOrden;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

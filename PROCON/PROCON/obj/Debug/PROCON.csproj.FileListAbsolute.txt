@@ -28,3 +28,46 @@ C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PR
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.exe
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.pdb
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csprojFakesResolveAssemblyReference.cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.fakesconfig
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\fakes.args
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.pdb
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.xml
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.ah
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.ch
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.cs
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.csproj
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakes
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakesconfig
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.snk
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csproj.FileListAbsolute.txt
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csprojResolveAssemblyReference.cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.pdb
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.fakesconfig
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.pdb
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.xml
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ah
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ch
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.cs
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.csproj
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakes
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakesconfig
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.snk
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csproj.FileListAbsolute.txt
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csprojResolveAssemblyReference.cache
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.pdb
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.dll
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.xml
+D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.xml
