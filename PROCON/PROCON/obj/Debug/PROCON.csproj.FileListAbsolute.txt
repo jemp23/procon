@@ -125,3 +125,4 @@ C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\p
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
 C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.EMPRESA.empresas.resources
+C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.MAQUINAS.maquinas.resources

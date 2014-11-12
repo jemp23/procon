@@ -122,6 +122,11 @@ namespace PROCON.VISTA.SESION
                         EMPRESA.empresas.DefInstance.Show();
                         break;
 
+                    case "MAQUINAS":
+                        MAQUINAS.maquinas.DefInstance.MdiParent = this;
+                        MAQUINAS.maquinas.DefInstance.Show();
+                        break;
+
                     case "salir":
                         Application.Exit();
                         break;

@@ -50,15 +50,19 @@
     <Compile Include="CONEXION\Conexion.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
     <Compile Include="CONTROLADOR\EMPRESA\controladorEmpresa.cs" />
+    <Compile Include="CONTROLADOR\MAQUINAS\controladorMaquinas.cs" />
     <Compile Include="CONTROLADOR\SESION\sesion.cs" />
+    <Compile Include="CONTROLADOR\TIPO_DESPERDICIO\controladorTipo_desperdicio.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorModulos.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorTipoUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuarioTipoUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\entidadModulostusuario.cs" />
     <Compile Include="MODELO\entidadEmpresa.cs" />
+    <Compile Include="MODELO\entidadMaquinas.cs" />
     <Compile Include="MODELO\entidadModulos.cs" />
     <Compile Include="MODELO\entidadTipoUsuario.cs" />
+    <Compile Include="MODELO\entidadTipo_desperdicio.cs" />
     <Compile Include="MODELO\entidadUsuario.cs" />
     <Compile Include="MODELO\entidadUsuarioTipoUsuario.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +73,12 @@
     </Compile>
     <Compile Include="VISTA\EMPRESA\empresas.Designer.cs">
       <DependentUpon>empresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\MAQUINAS\maquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\MAQUINAS\maquinas.Designer.cs">
+      <DependentUpon>maquinas.cs</DependentUpon>
     </Compile>
     <Compile Include="VISTA\SESION\acceso.cs">
       <SubType>Form</SubType>
@@ -124,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="VISTA\EMPRESA\empresas.resx">
       <DependentUpon>empresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\MAQUINAS\maquinas.resx">
+      <DependentUpon>maquinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\SESION\acceso.resx">
       <DependentUpon>acceso.cs</DependentUpon>
