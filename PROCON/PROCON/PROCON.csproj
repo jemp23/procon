@@ -53,6 +53,7 @@
     <Compile Include="CONEXION\Conexion.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
     <Compile Include="CONTROLADOR\EMPRESA\controladorEmpresa.cs" />
+    <Compile Include="CONTROLADOR\MAQUINA\controladorMaquina.cs" />
     <Compile Include="CONTROLADOR\SESION\sesion.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorModulos.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorTipoUsuario.cs" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="REPORTES\" />
+    <Folder Include="VISTA\MAQUINA\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RECURSOS\salir.png" />

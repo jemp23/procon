@@ -15,5 +15,4 @@ C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.exe
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.pdb
-C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.CodeAnalysisLog.xml
-C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.lastcodeanalysissucceeded
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
