@@ -185,8 +185,12 @@ namespace PROCON.VISTA.USUARIO
 
                 if (txtId.Text != "")
                 {
-                   // llenarPerfilesUsuario(Convert.ToInt16(txtId.Text));
-                   // llenarPerfiles(Convert.ToInt16(txtId.Text));
+                    limpiarTreeView();
+                    CrearNodosDelPadre(0, null, Convert.ToInt16(txtId.Text));
+                    treeView1.ExpandAll();
+
+                    CrearNodosDelPadreDisponibles(0, null, Convert.ToInt16(txtId.Text));
+                    treeView2.ExpandAll();
                 }
             }
             catch (Exception eX)
@@ -316,6 +320,207 @@ namespace PROCON.VISTA.USUARIO
             try
             {
                 this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void llenarModulosUsuario(int idTUsuario)
+        {
+            try
+            {
+                //limpiar los nodos antes de cargar de nuevo
+                limpiarTreeView();
+                // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
+
+                DataTable dt = controladorTipoUsuario.listarModulosdeUnTipoUsuario(idTUsuario).Tables[0];
+                DataView dataViewHijos = dt.DefaultView;
+
+                // Agregar al TreeView los nodos Hijos que se han obtenido en el DataView.
+                foreach (DataRowView dataRowCurrent in dataViewHijos)
+                {
+                    TreeNode nuevoNodo = new TreeNode();
+                    nuevoNodo.Text = dataRowCurrent["descripcion"].ToString().Trim();
+                    nuevoNodo.Tag = dataRowCurrent["id"].ToString().Trim();
+                    nuevoNodo.ImageIndex = Convert.ToInt16( dataRowCurrent["imagen"].ToString().Trim());
+                    
+                    treeView1.Nodes.Add(nuevoNodo);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre, int idTUsuario)
+        {
+            // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
+            DataTable dt = controladorTipoUsuario.listarModulosdeUnTipoUsuario(idTUsuario).Tables[0];
+
+            DataView dataViewHijos = dt.DefaultView;
+
+
+            dataViewHijos.RowFilter = dt.Columns["superior"].ColumnName + " = " + indicePadre;
+
+            // Agregar al TreeView los nodos Hijos que se han obtenido en el DataView.
+            foreach (DataRowView dataRowCurrent in dataViewHijos)
+            {
+                TreeNode nuevoNodo = new TreeNode();
+                nuevoNodo.Text = dataRowCurrent["descripcion"].ToString().Trim();
+                nuevoNodo.Tag = dataRowCurrent["id"].ToString().Trim();
+                
+
+                if (dataRowCurrent["imagen"].ToString().Trim() == null || dataRowCurrent["imagen"].ToString().Trim() == "") nuevoNodo.ImageIndex = 0;
+                else nuevoNodo.ImageIndex = Convert.ToInt16(dataRowCurrent["imagen"].ToString().Trim());
+                // si el parámetro nodoPadre es nulo es porque es la primera llamada, son los Nodos
+                // del primer nivel que no dependen de otro nodo.
+                if (nodePadre == null)
+                {
+                    treeView1.Nodes.Add(nuevoNodo);
+                }
+                // se añade el nuevo nodo al nodo padre.
+                else
+                {
+                    nodePadre.Nodes.Add(nuevoNodo);
+                }
+
+                // Llamada recurrente al mismo método para agregar los Hijos del Nodo recién agregado.
+
+                CrearNodosDelPadre(Int32.Parse(dataRowCurrent["id"].ToString()), nuevoNodo, idTUsuario);
+
+
+            }
+
+        }
+        private void CrearNodosDelPadreDisponibles(int indicePadre, TreeNode nodePadre, int idTUsuario)
+        {
+            // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
+            DataTable dt = controladorTipoUsuario.listarModulosdeUnTipoUsuarioDisponibles().Tables[0];
+
+            DataView dataViewHijos = dt.DefaultView;
+
+
+            dataViewHijos.RowFilter = dt.Columns["superior"].ColumnName + " = " + indicePadre;
+
+            // Agregar al TreeView los nodos Hijos que se han obtenido en el DataView.
+            foreach (DataRowView dataRowCurrent in dataViewHijos)
+            {
+                TreeNode nuevoNodo = new TreeNode();
+
+                int total = controladorTipoUsuario.consultarSiElPerfilTieneElModuloAsignado(Convert.ToInt16(txtId.Text), Convert.ToInt16(dataRowCurrent["id"].ToString().Trim()));
+
+                if (total == 0)
+                {
+                    nuevoNodo.Text = dataRowCurrent["descripcion"].ToString().Trim();
+                    if (dataRowCurrent["imagen"].ToString().Trim() == null || dataRowCurrent["imagen"].ToString().Trim() == "") nuevoNodo.ImageIndex = 0;
+                    else nuevoNodo.ImageIndex = Convert.ToInt16(dataRowCurrent["imagen"].ToString().Trim());
+                    nuevoNodo.Tag = dataRowCurrent["id"].ToString().Trim();
+                }
+                else
+                {
+                    nuevoNodo.Text = "YA " + dataRowCurrent["descripcion"].ToString().Trim();
+                    nuevoNodo.ImageIndex = 6;
+                    nuevoNodo.Tag = "0";
+                    
+                }
+                    
+
+             
+
+                if (nodePadre == null)
+                    {
+                        treeView2.Nodes.Add(nuevoNodo);
+                    }
+                    // se añade el nuevo nodo al nodo padre.
+                    else
+                    {
+                        nodePadre.Nodes.Add(nuevoNodo);
+                    }
+                // Llamada recurrente al mismo método para agregar los Hijos del Nodo recién agregado.
+
+ CrearNodosDelPadreDisponibles(Int32.Parse(dataRowCurrent["id"].ToString()), nuevoNodo, idTUsuario);
+
+
+            }
+
+        }
+        private void tipoUsuario_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtId.Text != "")
+                {
+                    CrearNodosDelPadre(0, null, Convert.ToInt16(txtId.Text));
+                    CrearNodosDelPadreDisponibles(0, null, Convert.ToInt16(txtId.Text));
+                    treeView1.ExpandAll();
+                    treeView2.ExpandAll();
+                }
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show(eX.ToString(), "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void treeView1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+                TreeNode node = treeView1.SelectedNode;
+                string nodoSeleccionado = node.Tag.ToString();
+
+                controladorTipoUsuario conutu = new controladorTipoUsuario();
+
+                int res = conutu.eliminarUnModulo(Convert.ToInt32(txtId.Text),Convert.ToInt32(nodoSeleccionado) );
+
+                if (res > 0)
+                {
+                    if (txtId.Text != "")
+                    {
+                        limpiarTreeView();
+                        CrearNodosDelPadre(0, null, Convert.ToInt16(txtId.Text));
+                        CrearNodosDelPadreDisponibles(0, null, Convert.ToInt16(txtId.Text));
+                        treeView1.ExpandAll();
+                        treeView2.ExpandAll();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void treeView2_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+                TreeNode node = treeView2.SelectedNode;
+                string nodoSeleccionado = node.Tag.ToString();
+
+                controladorTipoUsuario conutu = new controladorTipoUsuario();
+
+                int res = conutu.AnexarUnModulo(Convert.ToInt32(txtId.Text), Convert.ToInt32(nodoSeleccionado));
+
+                if (res > 0)
+                {
+                    if (txtId.Text != "")
+                    {
+                        limpiarTreeView();
+                        CrearNodosDelPadre(0, null, Convert.ToInt16(txtId.Text));
+                        CrearNodosDelPadreDisponibles(0, null, Convert.ToInt16(txtId.Text));
+                        treeView1.ExpandAll();
+                        treeView2.ExpandAll();
+                    }
+                }
+
             }
             catch (Exception ex)
             {

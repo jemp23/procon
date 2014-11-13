@@ -42,7 +42,7 @@
             this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(250, 750);
+            this.splitter1.Size = new System.Drawing.Size(250, 733);
             this.splitter1.TabIndex = 2;
             this.splitter1.TabStop = false;
             // 
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 750);
+            this.ClientSize = new System.Drawing.Size(1101, 733);
             this.Controls.Add(this.btnMaximizar);
             this.Controls.Add(this.BtnMinimizar);
             this.Controls.Add(this.treeView1);

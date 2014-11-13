@@ -67,9 +67,10 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dgListado = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.id = new System.Windows.Forms.DataGridViewLinkColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tabFormulario.SuspendLayout();
@@ -306,7 +307,7 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(361, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 413);
+            this.groupBox2.Size = new System.Drawing.Size(626, 413);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MODULOS DE ACCESO";
@@ -329,11 +330,15 @@
             this.treeView2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView2.ForeColor = System.Drawing.Color.Gray;
             this.treeView2.HotTracking = true;
+            this.treeView2.ImageIndex = 0;
+            this.treeView2.ImageList = this.imageList1;
             this.treeView2.Location = new System.Drawing.Point(337, 43);
             this.treeView2.Name = "treeView2";
             this.treeView2.Scrollable = false;
-            this.treeView2.Size = new System.Drawing.Size(226, 364);
+            this.treeView2.SelectedImageIndex = 0;
+            this.treeView2.Size = new System.Drawing.Size(278, 364);
             this.treeView2.TabIndex = 42;
+            this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
             // 
             // label9
             // 
@@ -353,11 +358,14 @@
             this.treeView1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.ForeColor = System.Drawing.Color.Gray;
             this.treeView1.HotTracking = true;
+            this.treeView1.ImageIndex = 0;
+            this.treeView1.ImageList = this.imageList1;
             this.treeView1.Location = new System.Drawing.Point(30, 43);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Scrollable = false;
-            this.treeView1.Size = new System.Drawing.Size(226, 364);
+            this.treeView1.SelectedImageKey = "3.ico";
+            this.treeView1.Size = new System.Drawing.Size(278, 364);
             this.treeView1.TabIndex = 4;
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // groupBox1
             // 
@@ -503,6 +511,18 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.Width = 350;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "0.ico");
+            this.imageList1.Images.SetKeyName(1, "1.ico");
+            this.imageList1.Images.SetKeyName(2, "2.png");
+            this.imageList1.Images.SetKeyName(3, "3.ico");
+            this.imageList1.Images.SetKeyName(4, "4.ico");
+            this.imageList1.Images.SetKeyName(5, "5.ico");
+            this.imageList1.Images.SetKeyName(6, "6.ico");
+            // 
             // tipoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +538,7 @@
             this.Name = "tipoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "tipoUsuario";
+            this.Load += new System.EventHandler(this.tipoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -578,5 +599,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.DataGridViewLinkColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

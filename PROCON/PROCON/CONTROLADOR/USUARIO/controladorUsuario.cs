@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Net;
 using PROCON.CONEXION;
 using PROCON.MODELO;
+using PROCON.CONTROLADOR.SESION;
 
 namespace PROCON.CONTROLADOR.USUARIO
 {
@@ -34,11 +35,13 @@ namespace PROCON.CONTROLADOR.USUARIO
                     id = Convert.ToInt16( resultado["id"].ToString());
                     nombres = resultado["nombres"].ToString();
 
+                    sesion.CODUSUARIOSESION = id;
+                    sesion.NOMBREUSUARIOSESION = nombres.ToString();
+
                     /*
                      *  Color c = ColorTranslator.FromHtml(ccolor); //Aqui le pasas el string que define el color
                     sesion.AUTOFORMPACIENTE = resultado["autoformpaciente"].ToString();
-                    sesion.CODUSUARIOSESION = Convert.ToInt32(usu_cod.ToString());
-                    sesion.NOMBREUSUARIOSESION = nombre.ToString();
+
                     sesion.TIPODEUSUARIO = Convert.ToInt32(usu_tipo.ToString());
                     sesion.NIVELUSUARIO = Convert.ToInt32(nivel.ToString());
                     sesion.LOGINUSUARIO = usu_log.ToString();

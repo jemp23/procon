@@ -1,128 +1,19 @@
-D:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.exe.config
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.exe
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\PROCON.pdb
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.exe
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.pdb
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.exe
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.exe
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\bin\Debug\PROCON.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\prueba de modulo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.csprojFakesResolveAssemblyReference.cache
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.fakesconfig
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\fakes.args
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\Microsoft.QualityTools.Testing.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.pdb
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.xml
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.ah
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.ch
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.cs
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.csproj
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakes
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakesconfig
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\f.snk
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csproj.FileListAbsolute.txt
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csprojResolveAssemblyReference.cache
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.pdb
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.fakesconfig
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\Microsoft.QualityTools.Testing.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.pdb
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.xml
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ah
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ch
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.cs
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.csproj
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakes
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakesconfig
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\f.snk
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csproj.FileListAbsolute.txt
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csprojResolveAssemblyReference.cache
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.pdb
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.dll
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.xml
-D:\CONDOR\APP\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.xml
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.exe
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\PROCON.exe
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\PROCON.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\MySql.Data.6.1.6.0.Fakes.fakesconfig
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\MySql.Data.Fakes.fakesconfig
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\bin\Debug\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.csprojFakesResolveAssemblyReference.cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\fakes.args
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\b\Microsoft.QualityTools.Testing.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\b\MySql.Data.6.1.6.0.Fakes.xml
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ah
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.ch
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.cs
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.csproj
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakes
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.fakesconfig
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\f.snk
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csproj.FileListAbsolute.txt
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\o\f.csprojResolveAssemblyReference.cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd01\o\MySql.Data.6.1.6.0.Fakes.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\b\Microsoft.QualityTools.Testing.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\b\MySql.Data.Fakes.xml
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.ah
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.ch
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.cs
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.csproj
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakes
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.fakesconfig
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\f.snk
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csproj.FileListAbsolute.txt
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\o\f.csprojResolveAssemblyReference.cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.dll
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\Fakes\msd\o\MySql.Data.Fakes.pdb
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.EMPRESA.empresas.resources
-C:\Users\dhernandez\Documents\agenda de sistemas 2014\procon csharp 12-11-2014\proyecto procon completo\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.MAQUINAS.maquinas.resources
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.config
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.pdb
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.Properties.Resources.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.EMPRESA.empresas.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.acceso.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.claveConfigurarConexion.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.configurarConexion.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.modulos.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.SESION.principal.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.tipoUsuario.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.usuario.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.csproj.GenerateResource.Cache
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.exe
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.pdb
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.CodeAnalysisLog.xml
+C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe.lastcodeanalysissucceeded

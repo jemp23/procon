@@ -194,7 +194,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM empresa ORDER BY sede;";
+            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
@@ -203,7 +203,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
                 entidadEmpresa entidad = new entidadEmpresa();
 
                 entidad.Id = Convert.ToInt16(lector["id"].ToString());
-                entidad.Sede = lector["sede"].ToString();
+                entidad.Nombre = lector["Nombre"].ToString();
                 Lista.Add(entidad);
             }
             lector.Close();
@@ -218,7 +218,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM empresa ORDER BY sede;";
+            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
@@ -227,7 +227,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
 
             while (lector.Read())
             {
-                coleccion.Add(lector["sede"].ToString());
+                coleccion.Add(lector["nombre"].ToString());
             }
             lector.Close();
             cnn.Close();

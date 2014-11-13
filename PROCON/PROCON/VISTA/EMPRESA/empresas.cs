@@ -32,7 +32,9 @@ namespace PROCON.VISTA.EMPRESA
             }
         }
 
-     public empresas()
+
+
+        public empresas()
         {
             try
             {

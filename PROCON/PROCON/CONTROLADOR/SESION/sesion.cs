@@ -51,9 +51,23 @@ namespace PROCON.CONTROLADOR.SESION
 
             try
             {
-                cmd = new MySqlCommand("SELECT * FROM modulos");
+                if (sesion.CODUSUARIOSESION == 1)
+                {
+                    cmd = new MySqlCommand("select * from modulos order by modulos.orden");
+
+                }
+                else
+                {
+                    
+                    cmd = new MySqlCommand("SELECT modulos.id, modulos.descripcion, modulos.direccion, modulos.interfaz, modulos.orden, modulos.superior, modulos.imagen, usuario_tipousuario.fkusuario " +
+" FROM modulos INNER JOIN ((tipo_usuario INNER JOIN usuario_tipousuario ON tipo_usuario.id = usuario_tipousuario.fktipo_usuario) INNER JOIN permisos ON tipo_usuario.id = permisos.fk_tipousuario) ON modulos.id = permisos.fk_tipomodulo " +
+" GROUP BY modulos.id, modulos.descripcion, modulos.direccion, modulos.interfaz, modulos.orden, modulos.superior, usuario_tipousuario.fkusuario " +
+" HAVING (((usuario_tipousuario.fkusuario)=@fkusuario)) " +
+" ORDER BY modulos.orden");
+                }
                 cmd.CommandType = CommandType.Text;
                 da.SelectCommand = (MySqlCommand)cmd;
+                cmd.Parameters.AddWithValue("@fkusuario", sesion.CODUSUARIOSESION);
 
                 Conexion con = new Conexion();
                 connection = con.getConexion();

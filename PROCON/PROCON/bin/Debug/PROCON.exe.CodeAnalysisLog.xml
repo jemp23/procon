@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="C:\CONDOR\procon\PROCON\PROCON\bin\Debug\PROCON.exe">
+   <Modules>
+    <Module Name="procon.exe">
+     <Namespaces>
+      <Namespace Name="PROCON.CONEXION">
+       <Types>
+        <Type Name="Conexion" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implemente IDisposable en 'Conexion' porque crea miembros de los tipos IDisposable siguientes: 'MySqlConnection'. Si ya se había distribuido 'Conexion', agregar nuevos miembros que implementen IDisposable en este tipo se considera un cambio rotundo para los consumidores existentes.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="PROCON.CONTROLADOR.EMPRESA">
+       <Types>
+        <Type Name="controladorEmpresa" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#examinarPorIdDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\EMPRESA" File="controladorEmpresa.cs" Line="55">El objeto 'connection' admite Dispose más de una vez en el método 'controladorEmpresa.examinarPorIdDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 55</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarDataGridDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\EMPRESA" File="controladorEmpresa.cs" Line="97">El objeto 'connection' admite Dispose más de una vez en el método 'controladorEmpresa.ListarDataGridDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 97</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="PROCON.CONTROLADOR.SESION">
+       <Types>
+        <Type Name="sesion" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#listarMenu()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\SESION" File="sesion.cs" Line="92">El objeto 'connection' admite Dispose más de una vez en el método 'sesion.listarMenu()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 92</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="PROCON.CONTROLADOR.USUARIO">
+       <Types>
+        <Type Name="controladorModulos" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#examinarPorIdDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorModulos.cs" Line="55">El objeto 'connection' admite Dispose más de una vez en el método 'controladorModulos.examinarPorIdDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 55</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarDataGridDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorModulos.cs" Line="97">El objeto 'connection' admite Dispose más de una vez en el método 'controladorModulos.ListarDataGridDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 97</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="controladorTipoUsuario" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#examinarPorIdDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="319">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.examinarPorIdDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 319</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarDataGridDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="360">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.ListarDataGridDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 360</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listarModulosdeUnTipoUsuario(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="161">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.listarModulosdeUnTipoUsuario(int)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 161</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listarModulosdeUnTipoUsuarioDisponibles()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="202">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.listarModulosdeUnTipoUsuarioDisponibles()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 202</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listarPerfilesdeUnUsuario(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="55">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.listarPerfilesdeUnUsuario(int)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 55</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listarPerfilesDisponibles()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorTipoUsuario.cs" Line="94">El objeto 'connection' admite Dispose más de una vez en el método 'controladorTipoUsuario.listarPerfilesDisponibles()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 94</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="controladorUsuario" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#examinarPorIdDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorUsuario.cs" Line="141">El objeto 'connection' admite Dispose más de una vez en el método 'controladorUsuario.examinarPorIdDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 141</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarDataGridDataset()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorUsuario.cs" Line="182">El objeto 'connection' admite Dispose más de una vez en el método 'controladorUsuario.ListarDataGridDataset()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 182</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#verificarUsuario(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2014-11-13 13:54:19Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\CONDOR\procon\PROCON\PROCON\CONTROLADOR\USUARIO" File="controladorUsuario.cs" Line="23">La cadena de consulta pasada a 'MySqlCommand.CommandText.set(string)' en 'controladorUsuario.verificarUsuario(string, string)' podría contener las siguientes variables: 'log', 'pass'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>No usar Dispose varias veces en objetos</Name>
+   <Description>Un método Dispose correctamente implementado se puede llamar varias veces sin producir ninguna excepción. Sin embargo, esto no está garantizado y, para evitar generar una excepción System.ObjectDisposedException, no debe llamar al método Dispose más de una vez en un objeto.</Description>
+   <Resolution Name="Default">El objeto {0} admite Dispose más de una vez en el método {1}. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 182</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad</Name>
+   <Description>Una cadena de comando SQL compilada a partir de datos proporcionados por el usuario es vulnerable a ataques pon inyección de código SQL. Microsoft SQL Server y otros servidores de bases de datos admiten procedimientos almacenados y consultas SQL parametrizadas, que reducen el riesgo de ataques por inyección.</Description>
+   <Resolution Name="WithNonLiterals">La cadena de consulta pasada a {0} en {1} podría contener las siguientes variables: {2}. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Los tipos que poseen campos descartables deben ser descartables</Name>
+   <Description>Los tipos que declaran miembros descartables también deben implementar IDisposable. Si el tipo no posee ningún recurso no administrado, no implementar un finalizador.</Description>
+   <Resolution Name="DependsOnFix">Implemente IDisposable en {0} porque crea miembros de los tipos IDisposable siguientes: {1}. Si ya se había distribuido {0}, agregar nuevos miembros que implementen IDisposable en este tipo se considera un cambio rotundo para los consumidores existentes.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Categoría</String>
+  <String Key="Certainty">Certeza</String>
+  <String Key="CollapseAll">Contraer todo</String>
+  <String Key="CheckId">Comprobar id.</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">errores</String>
+  <String Key="ExpandAll">Expandir todo</String>
+  <String Key="Help">Ayuda</String>
+  <String Key="Line">Línea</String>
+  <String Key="Messages">mensajes</String>
+  <String Key="LocationNotStoredInPdb">[Ubicación no almacenada en Pdb]</String>
+  <String Key="Project">Proyecto</String>
+  <String Key="Resolution">Resolución</String>
+  <String Key="Rule">Regla</String>
+  <String Key="RuleFile">Archivo de regla</String>
+  <String Key="RuleDescription">Descripción de la regla</String>
+  <String Key="Source">Origen</String>
+  <String Key="Status">Estado</String>
+  <String Key="Target">Círculos concéntricos</String>
+  <String Key="Warning">Advertencia</String>
+  <String Key="Warnings">advertencias</String>
+  <String Key="ReportTitle">Informe de análisis del código</String>
+ </Localized>
+</FxCopReport>

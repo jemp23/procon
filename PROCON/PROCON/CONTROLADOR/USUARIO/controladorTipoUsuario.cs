@@ -117,6 +117,167 @@ namespace PROCON.CONTROLADOR.USUARIO
             return max;
         }
 
+        public static DataSet listarModulosdeUnTipoUsuario(int id)
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand(" SELECT modulos.id, modulos.descripcion, modulos.direccion, modulos.interfaz, modulos.orden, modulos.imagen, modulos.superior " +
+" FROM modulos INNER JOIN (tipo_usuario INNER JOIN permisos ON tipo_usuario.id = permisos.fk_tipousuario) ON modulos.id = permisos.fk_tipomodulo " +
+" WHERE (((tipo_usuario.id)=@id)) " +
+" ORDER BY modulos.orden;");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+                cmd.Parameters.AddWithValue("@id", id);
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static DataSet listarModulosdeUnTipoUsuarioDisponibles()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand(" SELECT * from modulos " +
+" ORDER BY modulos.orden;");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static int consultarSiElPerfilTieneElModuloAsignado(int fk_tipousuario, int fk_tipomodulo)
+        {
+            int max = 0;
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT permisos.id, permisos.fk_tipousuario, permisos.fk_tipomodulo " +
+" FROM permisos " +
+" WHERE (((permisos.fk_tipousuario)=@fk_tipousuario) AND ((permisos.fk_tipomodulo)=@fk_tipomodulo));";
+
+            comando.Parameters.AddWithValue("@fk_tipousuario", fk_tipousuario);
+            comando.Parameters.AddWithValue("@fk_tipomodulo", fk_tipomodulo);
+
+
+            MySqlDataReader lector = comando.ExecuteReader();
+
+            if (lector.Read())
+            {
+                max = Convert.ToInt32(lector["id"].ToString());
+            }
+            lector.Close();
+            cnn.Close();
+            return max;
+        }
+
+        public int eliminarUnModulo(int fk_tipousuario, int fk_tipomodulo)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "delete from permisos where fk_tipousuario=@fk_tipousuario and fk_tipomodulo=@fk_tipomodulo;";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@fk_tipousuario", fk_tipousuario);
+                comando.Parameters.AddWithValue("@fk_tipomodulo", fk_tipomodulo);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int AnexarUnModulo(int fk_tipousuario, int fk_tipomodulo)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "INSERT INTO permisos  " +
+                " (fk_tipousuario, fk_tipomodulo) " +
+                " VALUES " +
+                " (@fk_tipousuario, @fk_tipomodulo) " +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@fk_tipousuario", fk_tipousuario);
+                comando.Parameters.AddWithValue("@fk_tipomodulo", fk_tipomodulo);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         //metodos comunes en todos los formularios
         public static DataSet examinarPorIdDataset()
         {
