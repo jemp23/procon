@@ -10,10 +10,11 @@ using PROCON.MODELO;
 using System.Windows.Forms;
 
 
-namespace PROCON.CONTROLADOR.EMPRESA
+namespace PROCON.CONTROLADOR.MAQUINAS
 {
-    class controladorEmpresa : abstractControlador
+    class controladorMaquinas : abstractControlador
     {
+ 
         //metodos comunes en todos los formularios
         public static DataSet examinarPorIdDataset() //trae una copia de la tabla
         {
@@ -28,7 +29,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
 
             try
             {
-                cmd = new MySqlCommand("SELECT * FROM empresa");
+                cmd = new MySqlCommand("SELECT * FROM maquinas");
                 cmd.CommandType = CommandType.Text;
                 da.SelectCommand = (MySqlCommand)cmd;
 
@@ -69,7 +70,8 @@ namespace PROCON.CONTROLADOR.EMPRESA
 
             try
             {
-                cmd = new MySqlCommand("SELECT id, sede, nombre from empresa");
+                cmd = new MySqlCommand("SELECT maquinas.Id, maquinas.descripcion, empresa.sede, tipo_desperdicio.descripcion as descripciondesperdicio "+
+" FROM empresa INNER JOIN (tipo_desperdicio INNER JOIN maquinas ON tipo_desperdicio.Id = maquinas.fktipo_maquina) ON empresa.Id = maquinas.fkempresa;"); //ESTA SENTECIA CONCATENA SE HACE PARA QUE ME HAGA LOS JOIN CON LAS OTRAS TABLAS X Q TIENEN FK
                 cmd.CommandType = CommandType.Text;
                 da.SelectCommand = (MySqlCommand)cmd;
                 Conexion con = new Conexion();
@@ -97,26 +99,24 @@ namespace PROCON.CONTROLADOR.EMPRESA
             connection.Close();
             return ds;
         }
-        public int nuevo(entidadEmpresa entEmpresa)
+        public int nuevo(entidadMaquinas entMaquinas)
         {
             try
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "INSERT INTO empresa " +
-                " (sede, nombre, rif, direccion, telefono, correo) " +
+                string query = "INSERT INTO maquinas " +
+                " (numero, descripcion, fkempresa, fktipo_maquina) " +
                 " VALUES " +
-                " (@sede, @nombre, @rif, @direccion, @telefono, @correo) " +
+                " (@numero, @descripcion, @fkempresa, @fktipo_maquina) " +
                 ";";
 
                 comando = new MySqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@sede", entEmpresa.Sede);
-                comando.Parameters.AddWithValue("@nombre", entEmpresa.Nombre);
-                comando.Parameters.AddWithValue("@rif", entEmpresa.Rif);
-                comando.Parameters.AddWithValue("@direccion", entEmpresa.Direccion);
-                comando.Parameters.AddWithValue("@telefono", entEmpresa.Telefono);
-                comando.Parameters.AddWithValue("@correo", entEmpresa.Correo);
-                comando.Parameters.AddWithValue("@id", entEmpresa.Id);
+                comando.Parameters.AddWithValue("@numero", entMaquinas.Numero);
+                comando.Parameters.AddWithValue("@descripcion", entMaquinas.Descripcion);
+                comando.Parameters.AddWithValue("@fkempresa", entMaquinas.Fkempresa);
+                comando.Parameters.AddWithValue("@fktipo_maquina", entMaquinas.Fktipo_maquina);
+                comando.Parameters.AddWithValue("@id", entMaquinas.Id);
 
                 int Resultado = comando.ExecuteNonQuery();
 
@@ -130,23 +130,21 @@ namespace PROCON.CONTROLADOR.EMPRESA
             }
         }
 
-        public int modificar(entidadEmpresa entEmpresa) //guardar cambios
+        public int modificar(entidadMaquinas entMaquinas) //guardar cambios
         {
             try
             {
                 MySqlConnection conexion = base.getConexion();
                 MySqlCommand comando;
-                string query = "UPDATE empresa set sede = @sede, nombre=@nombre, rif=@rif, direccion=@direccion, telefono=@telefono, correo=@correo " +
+                string query = "UPDATE maquinas set numero = @numero, descripcion=@descripcion, fkempresa=@fkempresa, fktipo_maquina=@fktipo_maquina " +
                 "WHERE id = @id";
 
                 comando = new MySqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@sede", entEmpresa.Sede);
-                comando.Parameters.AddWithValue("@nombre", entEmpresa.Nombre);
-                comando.Parameters.AddWithValue("@rif", entEmpresa.Rif);
-                comando.Parameters.AddWithValue("@direccion", entEmpresa.Direccion);
-                comando.Parameters.AddWithValue("@telefono", entEmpresa.Telefono);
-                comando.Parameters.AddWithValue("@correo", entEmpresa.Correo);
-                comando.Parameters.AddWithValue("@id", entEmpresa.Id);
+                comando.Parameters.AddWithValue("@numero", entMaquinas.Numero);
+                comando.Parameters.AddWithValue("@descripcion", entMaquinas.Descripcion);
+                comando.Parameters.AddWithValue("@fkempresa", entMaquinas.Fkempresa);
+                comando.Parameters.AddWithValue("@fktipo_maquina", entMaquinas.Fktipo_maquina);
+                comando.Parameters.AddWithValue("@id", entMaquinas.Id);
                 int Resultado = comando.ExecuteNonQuery();
 
                 conexion.Close();
@@ -168,7 +166,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
                 MySqlConnection cnn = base.getConexion();
                 MySqlCommand comando = cnn.CreateCommand();
 
-                comando.CommandText = "SELECT Max(empresa.id) AS ULTIMO FROM empresa";
+                comando.CommandText = "SELECT Max(maquinas.id) AS ULTIMO FROM maquinas";
 
 
                 MySqlDataReader resultado = comando.ExecuteReader();
@@ -187,23 +185,23 @@ namespace PROCON.CONTROLADOR.EMPRESA
             }
         }
 
-        public static List<entidadEmpresa> listar() //me muestra la lista de un registro
+        public static List<entidadMaquinas> listar() //me muestra la lista de un registro
         {
-            List<entidadEmpresa> Lista = new List<entidadEmpresa>();
+            List<entidadMaquinas> Lista = new List<entidadMaquinas>();
 
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
+            comando.CommandText = "SELECT * FROM maquinas ORDER BY numero;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
             while (lector.Read())
             {
-                entidadEmpresa entidad = new entidadEmpresa();
+                entidadMaquinas entidad = new entidadMaquinas();
 
                 entidad.Id = Convert.ToInt16(lector["id"].ToString());
-                entidad.Sede = lector["sede"].ToString();
+                entidad.Numero = Convert.ToInt16(lector["numero"].ToString());
                 Lista.Add(entidad);
             }
             lector.Close();
@@ -218,7 +216,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
             Conexion con = new Conexion();
             MySqlConnection cnn = con.getConexion();
             MySqlCommand comando = cnn.CreateCommand();
-            comando.CommandText = "SELECT * FROM empresa ORDER BY nombre;";
+            comando.CommandText = "SELECT * FROM maquinas ORDER BY numero;";
             MySqlDataReader lector = comando.ExecuteReader();
 
 
@@ -227,7 +225,7 @@ namespace PROCON.CONTROLADOR.EMPRESA
 
             while (lector.Read())
             {
-                coleccion.Add(lector["nombre"].ToString());
+                coleccion.Add(lector["numero"].ToString());
             }
             lector.Close();
             cnn.Close();

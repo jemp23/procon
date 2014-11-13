@@ -91,7 +91,6 @@ namespace PROCON.VISTA.SESION
         }
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
-
             try
             {
 
@@ -100,7 +99,12 @@ namespace PROCON.VISTA.SESION
 
 
                 switch (nodoSeleccionado)
-                { 
+                {
+
+                    case "MAQUINAS":
+                        MAQUINAS.maquinas.DefInstance.MdiParent = this;
+                        MAQUINAS.maquinas.DefInstance.Show();
+                        break;
                     case "MODULOS":
                         SESION.modulos.DefInstance.MdiParent = this;
                         SESION.modulos.DefInstance.Show();
