@@ -28,7 +28,7 @@ namespace PROCON.VISTA.SESION
                 nuevoNodo2.Tag = "salir";
                 nuevoNodo2.ImageIndex = 2;
                 treeView1.Nodes.Add(nuevoNodo2);
-
+                treeView1.ExpandAll();
 
                 this.Text = "BIENVENIDOS A " + sesion.NOMBREAPLICACION + " FORMULARIO PRINCIPAL" ;
             }
@@ -101,6 +101,14 @@ namespace PROCON.VISTA.SESION
                 switch (nodoSeleccionado)
                 {
 
+                    case "DESPERDICIOS":
+                        DESPERDICIO.desperdicio.DefInstance.MdiParent = this;
+                        DESPERDICIO.desperdicio.DefInstance.Show();
+                        break;
+                    case "OPERADORES":
+                        USUARIO.operador.DefInstance.MdiParent = this;
+                        USUARIO.operador.DefInstance.Show();
+                        break;
                     case "MAQUINAS":
                         MAQUINAS.maquinas.DefInstance.MdiParent = this;
                         MAQUINAS.maquinas.DefInstance.Show();

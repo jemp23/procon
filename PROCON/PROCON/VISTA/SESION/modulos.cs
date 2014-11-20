@@ -138,6 +138,7 @@ namespace PROCON.VISTA.SESION
             {
                 actividadCampos(1, 1);  //activo los campos y le indico al metodo que es nuevo
                 NUEVOREGISTRO.Enabled = false; //desactivo el boton anexar
+                ELIMINARREFISTRO.Enabled = false;
                 txtNuevo.Text = "1"; //cambio labandera a 1 para indicar que es nuevo registro
                 tabListado.Select(); this.tabFormulario.SelectedIndex = 0; //activo la ficha datos
                 txtDescripcion.Focus(); //pongo el foco en el campo nombre
@@ -240,6 +241,7 @@ namespace PROCON.VISTA.SESION
         {
             try
             {
+                txtNuevo.Text = "0";
                 actividadCampos(1, 0); //activo los campos y le indico al metodo que es modificar
             }
             catch (Exception eX)
@@ -392,8 +394,37 @@ namespace PROCON.VISTA.SESION
                     }
                     else
                     {
-                        MessageBox.Show("REGISTRO ACTUALIZADO", "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        //MessageBox.Show("REGISTRO ACTUALIZADO", "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         actividadCampos(0, 0); //desactivo los campos puesto que guardo la informacion 
+                        NUEVOREGISTRO.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show(eX.ToString(), "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ELIMINARREFISTRO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string respuesta = MessageBox.Show("DESEA ELIMINAR EL MODULO: " + txtDescripcion.Text, "ATENCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+
+                if (respuesta == "Yes")
+                {
+                    controladorModulos conModulos = new controladorModulos();
+                    int r = conModulos.eliminarUnModulo(Convert.ToInt32(txtId.Text));
+
+                    if (r == 0)
+                    {
+                        MessageBox.Show("NO SE PUDO ELIMINAR EL REGISTRO", "FALLO EL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("REGISTRO ELIMINADO", "ELIMINADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.bindingNavigator1.MoveLastItem.PerformClick();//ir al ultimo registro
                     }
                 }
             }

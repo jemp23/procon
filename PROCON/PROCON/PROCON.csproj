@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.4.5.2.0\lib\net45\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -51,12 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONEXION\Conexion.cs" />
+    <Compile Include="CONEXION\ConexionFB.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
     <Compile Include="CONTROLADOR\EMPRESA\controladorEmpresa.cs" />
     <Compile Include="CONTROLADOR\MAQUINA\controladorMaquinas.cs" />
     <Compile Include="CONTROLADOR\SESION\sesion.cs" />
     <Compile Include="CONTROLADOR\TIPO_DESPERDICIO\controladorTipo_desperdicio.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorModulos.cs" />
+    <Compile Include="CONTROLADOR\USUARIO\controladorOperador.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorTipoUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuarioTipoUsuario.cs" />
@@ -64,13 +69,21 @@
     <Compile Include="MODELO\entidadEmpresa.cs" />
     <Compile Include="MODELO\entidadMaquinas.cs" />
     <Compile Include="MODELO\entidadModulos.cs" />
+    <Compile Include="MODELO\entidadOperador.cs" />
     <Compile Include="MODELO\entidadTipoUsuario.cs" />
     <Compile Include="MODELO\entidadTipo_desperdicio.cs" />
     <Compile Include="MODELO\entidadUsuario.cs" />
     <Compile Include="MODELO\entidadUsuarioTipoUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTILIDADES\siNo.cs" />
     <Compile Include="UTILIDADES\validaciones.cs" />
+    <Compile Include="VISTA\DESPERDICIO\desperdicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\DESPERDICIO\desperdicio.Designer.cs">
+      <DependentUpon>desperdicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="VISTA\EMPRESA\empresas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +126,12 @@
     <Compile Include="VISTA\SESION\principal.Designer.cs">
       <DependentUpon>principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="VISTA\USUARIO\operador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\USUARIO\operador.Designer.cs">
+      <DependentUpon>operador.cs</DependentUpon>
+    </Compile>
     <Compile Include="VISTA\USUARIO\tipoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VISTA\DESPERDICIO\desperdicio.resx">
+      <DependentUpon>desperdicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\EMPRESA\empresas.resx">
       <DependentUpon>empresas.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -160,12 +182,16 @@
     <EmbeddedResource Include="VISTA\SESION\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\USUARIO\operador.resx">
+      <DependentUpon>operador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\USUARIO\tipoUsuario.resx">
       <DependentUpon>tipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\USUARIO\usuario.resx">
       <DependentUpon>usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,7 +203,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="REPORTES\" />

@@ -54,6 +54,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.treeView2 = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -70,7 +71,6 @@
             this.id = new System.Windows.Forms.DataGridViewLinkColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tabFormulario.SuspendLayout();
@@ -340,6 +340,19 @@
             this.treeView2.TabIndex = 42;
             this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "0.ico");
+            this.imageList1.Images.SetKeyName(1, "1.ico");
+            this.imageList1.Images.SetKeyName(2, "2.png");
+            this.imageList1.Images.SetKeyName(3, "3.ico");
+            this.imageList1.Images.SetKeyName(4, "4.ico");
+            this.imageList1.Images.SetKeyName(5, "5.ico");
+            this.imageList1.Images.SetKeyName(6, "6.ico");
+            this.imageList1.Images.SetKeyName(7, "7.ico");
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -510,18 +523,6 @@
             this.descripcion.HeaderText = "DESCRIPCION";
             this.descripcion.Name = "descripcion";
             this.descripcion.Width = 350;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "0.ico");
-            this.imageList1.Images.SetKeyName(1, "1.ico");
-            this.imageList1.Images.SetKeyName(2, "2.png");
-            this.imageList1.Images.SetKeyName(3, "3.ico");
-            this.imageList1.Images.SetKeyName(4, "4.ico");
-            this.imageList1.Images.SetKeyName(5, "5.ico");
-            this.imageList1.Images.SetKeyName(6, "6.ico");
             // 
             // tipoUsuario
             // 

@@ -168,6 +168,7 @@ namespace PROCON.VISTA.USUARIO
         {
             try
             {
+                txtNuevo.Text = "0";
                 actividadCampos(1, 0); //activo los campos y le indico al metodo que es modificar
             }
             catch (Exception eX)
@@ -289,8 +290,9 @@ namespace PROCON.VISTA.USUARIO
                     }
                     else
                     {
-                        MessageBox.Show("REGISTRO ACTUALIZADO", "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        //MessageBox.Show("REGISTRO ACTUALIZADO", "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         actividadCampos(0, 0); //desactivo los campos puesto que guardo la informacion 
+                        NUEVOREGISTRO.Enabled = true;
                     }
                 }
             }

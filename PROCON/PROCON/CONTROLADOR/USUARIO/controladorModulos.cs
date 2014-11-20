@@ -233,5 +233,30 @@ namespace PROCON.CONTROLADOR.USUARIO
             cnn.Close();
             return coleccion;
         }
+
+        public int eliminarUnModulo(Int32 id)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "delete from modulos " +
+                " where id=@id" +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@id", id);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

@@ -31,13 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuario));
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.NUEVOREGISTRO = new System.Windows.Forms.ToolStripButton();
             this.totalR = new System.Windows.Forms.ToolStripLabel();
+            this.PRIMERO = new System.Windows.Forms.ToolStripButton();
+            this.ANTERIOR = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SIGUIENTE = new System.Windows.Forms.ToolStripButton();
+            this.ULTIMO = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ELIMINARREFISTRO = new System.Windows.Forms.ToolStripButton();
+            this.MODIFICAR = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BUSCAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.salir = new System.Windows.Forms.ToolStripButton();
             this.label18 = new System.Windows.Forms.Label();
             this.tabFormulario = new System.Windows.Forms.TabControl();
             this.tabDatos = new System.Windows.Forms.TabPage();
@@ -78,16 +88,6 @@
             this.Uusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NUEVOREGISTRO = new System.Windows.Forms.ToolStripButton();
-            this.PRIMERO = new System.Windows.Forms.ToolStripButton();
-            this.ANTERIOR = new System.Windows.Forms.ToolStripButton();
-            this.SIGUIENTE = new System.Windows.Forms.ToolStripButton();
-            this.ULTIMO = new System.Windows.Forms.ToolStripButton();
-            this.ELIMINARREFISTRO = new System.Windows.Forms.ToolStripButton();
-            this.MODIFICAR = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.BUSCAR = new System.Windows.Forms.ToolStripButton();
-            this.salir = new System.Windows.Forms.ToolStripButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -136,12 +136,40 @@
             this.bindingNavigator1.TabIndex = 39;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
+            // NUEVOREGISTRO
+            // 
+            this.NUEVOREGISTRO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.NUEVOREGISTRO.Image = ((System.Drawing.Image)(resources.GetObject("NUEVOREGISTRO.Image")));
+            this.NUEVOREGISTRO.Name = "NUEVOREGISTRO";
+            this.NUEVOREGISTRO.RightToLeftAutoMirrorImage = true;
+            this.NUEVOREGISTRO.Size = new System.Drawing.Size(34, 34);
+            this.NUEVOREGISTRO.Text = "Agregar nuevo";
+            this.NUEVOREGISTRO.Click += new System.EventHandler(this.NUEVOREGISTRO_Click);
+            // 
             // totalR
             // 
             this.totalR.Name = "totalR";
             this.totalR.Size = new System.Drawing.Size(37, 34);
             this.totalR.Text = "de {0}";
             this.totalR.ToolTipText = "Número total de elementos";
+            // 
+            // PRIMERO
+            // 
+            this.PRIMERO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PRIMERO.Image = ((System.Drawing.Image)(resources.GetObject("PRIMERO.Image")));
+            this.PRIMERO.Name = "PRIMERO";
+            this.PRIMERO.RightToLeftAutoMirrorImage = true;
+            this.PRIMERO.Size = new System.Drawing.Size(34, 34);
+            this.PRIMERO.Text = "Mover primero";
+            // 
+            // ANTERIOR
+            // 
+            this.ANTERIOR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ANTERIOR.Image = ((System.Drawing.Image)(resources.GetObject("ANTERIOR.Image")));
+            this.ANTERIOR.Name = "ANTERIOR";
+            this.ANTERIOR.RightToLeftAutoMirrorImage = true;
+            this.ANTERIOR.Size = new System.Drawing.Size(34, 34);
+            this.ANTERIOR.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
@@ -163,20 +191,92 @@
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 37);
             // 
+            // SIGUIENTE
+            // 
+            this.SIGUIENTE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SIGUIENTE.Image = ((System.Drawing.Image)(resources.GetObject("SIGUIENTE.Image")));
+            this.SIGUIENTE.Name = "SIGUIENTE";
+            this.SIGUIENTE.RightToLeftAutoMirrorImage = true;
+            this.SIGUIENTE.Size = new System.Drawing.Size(34, 34);
+            this.SIGUIENTE.Text = "Mover siguiente";
+            // 
+            // ULTIMO
+            // 
+            this.ULTIMO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ULTIMO.Image = ((System.Drawing.Image)(resources.GetObject("ULTIMO.Image")));
+            this.ULTIMO.Name = "ULTIMO";
+            this.ULTIMO.RightToLeftAutoMirrorImage = true;
+            this.ULTIMO.Size = new System.Drawing.Size(34, 34);
+            this.ULTIMO.Text = "Mover último";
+            // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 37);
+            // 
+            // ELIMINARREFISTRO
+            // 
+            this.ELIMINARREFISTRO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ELIMINARREFISTRO.Enabled = false;
+            this.ELIMINARREFISTRO.Image = ((System.Drawing.Image)(resources.GetObject("ELIMINARREFISTRO.Image")));
+            this.ELIMINARREFISTRO.Name = "ELIMINARREFISTRO";
+            this.ELIMINARREFISTRO.RightToLeftAutoMirrorImage = true;
+            this.ELIMINARREFISTRO.Size = new System.Drawing.Size(34, 34);
+            this.ELIMINARREFISTRO.Text = "Eliminar";
+            // 
+            // MODIFICAR
+            // 
+            this.MODIFICAR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MODIFICAR.Image = ((System.Drawing.Image)(resources.GetObject("MODIFICAR.Image")));
+            this.MODIFICAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.MODIFICAR.Name = "MODIFICAR";
+            this.MODIFICAR.Size = new System.Drawing.Size(34, 34);
+            this.MODIFICAR.Text = "toolStripButton1";
+            this.MODIFICAR.ToolTipText = "MODIFICAR ESTE REGISTRO";
+            this.MODIFICAR.Click += new System.EventHandler(this.MODIFICAR_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.AutoSize = false;
+            this.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(34, 34);
+            this.btnGuardar.Text = "GUARDAR DATOS";
+            this.btnGuardar.ToolTipText = "GUARDAR CAMBIOS EN REGISTRO";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 37);
             // 
+            // BUSCAR
+            // 
+            this.BUSCAR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BUSCAR.Image = ((System.Drawing.Image)(resources.GetObject("BUSCAR.Image")));
+            this.BUSCAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BUSCAR.Name = "BUSCAR";
+            this.BUSCAR.Size = new System.Drawing.Size(34, 34);
+            this.BUSCAR.Text = "toolStripSplitButton1";
+            this.BUSCAR.ToolTipText = "BUSCAR UN REGISTRO";
+            this.BUSCAR.Click += new System.EventHandler(this.BUSCAR_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 37);
+            // 
+            // salir
+            // 
+            this.salir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.salir.Image = global::PROCON.Properties.Resources.salir;
+            this.salir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.salir.Name = "salir";
+            this.salir.Size = new System.Drawing.Size(34, 34);
+            this.salir.Text = "toolStripButton1";
+            this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // label18
             // 
@@ -341,6 +441,7 @@
             this.txtUsuario.AcceptsTab = true;
             this.txtUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(146, 183);
+            this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(191, 27);
             this.txtUsuario.TabIndex = 7;
@@ -381,6 +482,7 @@
             this.txtCelular.AcceptsTab = true;
             this.txtCelular.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelular.Location = new System.Drawing.Point(146, 152);
+            this.txtCelular.MaxLength = 11;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(191, 27);
             this.txtCelular.TabIndex = 6;
@@ -403,6 +505,7 @@
             this.txtCorreo.AcceptsTab = true;
             this.txtCorreo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(146, 121);
+            this.txtCorreo.MaxLength = 100;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(284, 27);
             this.txtCorreo.TabIndex = 5;
@@ -425,6 +528,7 @@
             this.txtClave2.AcceptsTab = true;
             this.txtClave2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClave2.Location = new System.Drawing.Point(146, 245);
+            this.txtClave2.MaxLength = 10;
             this.txtClave2.Name = "txtClave2";
             this.txtClave2.PasswordChar = '*';
             this.txtClave2.Size = new System.Drawing.Size(191, 27);
@@ -448,6 +552,7 @@
             this.txtClave.AcceptsTab = true;
             this.txtClave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClave.Location = new System.Drawing.Point(146, 214);
+            this.txtClave.MaxLength = 10;
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(191, 27);
@@ -471,6 +576,7 @@
             this.txtApellidos.AcceptsTab = true;
             this.txtApellidos.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidos.Location = new System.Drawing.Point(146, 90);
+            this.txtApellidos.MaxLength = 50;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(284, 27);
             this.txtApellidos.TabIndex = 2;
@@ -515,6 +621,7 @@
             this.txtNombres.AcceptsTab = true;
             this.txtNombres.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.Location = new System.Drawing.Point(146, 59);
+            this.txtNombres.MaxLength = 50;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(284, 27);
             this.txtNombres.TabIndex = 1;
@@ -642,106 +749,6 @@
             this.correo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.correo.Width = 250;
             // 
-            // NUEVOREGISTRO
-            // 
-            this.NUEVOREGISTRO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.NUEVOREGISTRO.Image = ((System.Drawing.Image)(resources.GetObject("NUEVOREGISTRO.Image")));
-            this.NUEVOREGISTRO.Name = "NUEVOREGISTRO";
-            this.NUEVOREGISTRO.RightToLeftAutoMirrorImage = true;
-            this.NUEVOREGISTRO.Size = new System.Drawing.Size(34, 34);
-            this.NUEVOREGISTRO.Text = "Agregar nuevo";
-            this.NUEVOREGISTRO.Click += new System.EventHandler(this.NUEVOREGISTRO_Click);
-            // 
-            // PRIMERO
-            // 
-            this.PRIMERO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PRIMERO.Image = ((System.Drawing.Image)(resources.GetObject("PRIMERO.Image")));
-            this.PRIMERO.Name = "PRIMERO";
-            this.PRIMERO.RightToLeftAutoMirrorImage = true;
-            this.PRIMERO.Size = new System.Drawing.Size(34, 34);
-            this.PRIMERO.Text = "Mover primero";
-            // 
-            // ANTERIOR
-            // 
-            this.ANTERIOR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ANTERIOR.Image = ((System.Drawing.Image)(resources.GetObject("ANTERIOR.Image")));
-            this.ANTERIOR.Name = "ANTERIOR";
-            this.ANTERIOR.RightToLeftAutoMirrorImage = true;
-            this.ANTERIOR.Size = new System.Drawing.Size(34, 34);
-            this.ANTERIOR.Text = "Mover anterior";
-            // 
-            // SIGUIENTE
-            // 
-            this.SIGUIENTE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SIGUIENTE.Image = ((System.Drawing.Image)(resources.GetObject("SIGUIENTE.Image")));
-            this.SIGUIENTE.Name = "SIGUIENTE";
-            this.SIGUIENTE.RightToLeftAutoMirrorImage = true;
-            this.SIGUIENTE.Size = new System.Drawing.Size(34, 34);
-            this.SIGUIENTE.Text = "Mover siguiente";
-            // 
-            // ULTIMO
-            // 
-            this.ULTIMO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ULTIMO.Image = ((System.Drawing.Image)(resources.GetObject("ULTIMO.Image")));
-            this.ULTIMO.Name = "ULTIMO";
-            this.ULTIMO.RightToLeftAutoMirrorImage = true;
-            this.ULTIMO.Size = new System.Drawing.Size(34, 34);
-            this.ULTIMO.Text = "Mover último";
-            // 
-            // ELIMINARREFISTRO
-            // 
-            this.ELIMINARREFISTRO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ELIMINARREFISTRO.Enabled = false;
-            this.ELIMINARREFISTRO.Image = ((System.Drawing.Image)(resources.GetObject("ELIMINARREFISTRO.Image")));
-            this.ELIMINARREFISTRO.Name = "ELIMINARREFISTRO";
-            this.ELIMINARREFISTRO.RightToLeftAutoMirrorImage = true;
-            this.ELIMINARREFISTRO.Size = new System.Drawing.Size(34, 34);
-            this.ELIMINARREFISTRO.Text = "Eliminar";
-            // 
-            // MODIFICAR
-            // 
-            this.MODIFICAR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.MODIFICAR.Image = ((System.Drawing.Image)(resources.GetObject("MODIFICAR.Image")));
-            this.MODIFICAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.MODIFICAR.Name = "MODIFICAR";
-            this.MODIFICAR.Size = new System.Drawing.Size(34, 34);
-            this.MODIFICAR.Text = "toolStripButton1";
-            this.MODIFICAR.ToolTipText = "MODIFICAR ESTE REGISTRO";
-            this.MODIFICAR.Click += new System.EventHandler(this.MODIFICAR_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.AutoSize = false;
-            this.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(34, 34);
-            this.btnGuardar.Text = "GUARDAR DATOS";
-            this.btnGuardar.ToolTipText = "GUARDAR CAMBIOS EN REGISTRO";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // BUSCAR
-            // 
-            this.BUSCAR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BUSCAR.Image = ((System.Drawing.Image)(resources.GetObject("BUSCAR.Image")));
-            this.BUSCAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BUSCAR.Name = "BUSCAR";
-            this.BUSCAR.Size = new System.Drawing.Size(34, 34);
-            this.BUSCAR.Text = "toolStripSplitButton1";
-            this.BUSCAR.ToolTipText = "BUSCAR UN REGISTRO";
-            this.BUSCAR.Click += new System.EventHandler(this.BUSCAR_Click);
-            // 
-            // salir
-            // 
-            this.salir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.salir.Image = global::PROCON.Properties.Resources.salir;
-            this.salir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(34, 34);
-            this.salir.Text = "toolStripButton1";
-            this.salir.Click += new System.EventHandler(this.salir_Click);
-            // 
             // usuario
             // 
             this.AllowDrop = true;
@@ -756,7 +763,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "usuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "usuario";
             this.Load += new System.EventHandler(this.usuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();

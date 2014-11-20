@@ -385,7 +385,7 @@
             // 
             this.bindingNavigator1.AddNewItem = this.NUEVOREGISTRO;
             this.bindingNavigator1.CountItem = this.totalR;
-            this.bindingNavigator1.DeleteItem = null;
+            this.bindingNavigator1.DeleteItem = this.ELIMINARREFISTRO;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PRIMERO,
@@ -498,12 +498,12 @@
             // ELIMINARREFISTRO
             // 
             this.ELIMINARREFISTRO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ELIMINARREFISTRO.Enabled = false;
             this.ELIMINARREFISTRO.Image = ((System.Drawing.Image)(resources.GetObject("ELIMINARREFISTRO.Image")));
             this.ELIMINARREFISTRO.Name = "ELIMINARREFISTRO";
             this.ELIMINARREFISTRO.RightToLeftAutoMirrorImage = true;
             this.ELIMINARREFISTRO.Size = new System.Drawing.Size(34, 34);
             this.ELIMINARREFISTRO.Text = "Eliminar";
+            this.ELIMINARREFISTRO.Click += new System.EventHandler(this.ELIMINARREFISTRO_Click);
             // 
             // MODIFICAR
             // 
@@ -583,6 +583,8 @@
             this.imageList1.Images.SetKeyName(3, "3.ico");
             this.imageList1.Images.SetKeyName(4, "4.ico");
             this.imageList1.Images.SetKeyName(5, "5.ico");
+            this.imageList1.Images.SetKeyName(6, "6.ico");
+            this.imageList1.Images.SetKeyName(7, "7.ico");
             // 
             // modulos
             // 
@@ -593,6 +595,7 @@
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.label18);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "modulos";

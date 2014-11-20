@@ -72,6 +72,8 @@
             this.imageList1.Images.SetKeyName(3, "3.ico");
             this.imageList1.Images.SetKeyName(4, "4.ico");
             this.imageList1.Images.SetKeyName(5, "5.ico");
+            this.imageList1.Images.SetKeyName(6, "6.ico");
+            this.imageList1.Images.SetKeyName(7, "7.ico");
             // 
             // BtnMinimizar
             // 
