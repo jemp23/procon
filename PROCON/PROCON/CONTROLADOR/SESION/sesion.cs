@@ -32,6 +32,7 @@ namespace PROCON.CONTROLADOR.SESION
 
         //VARIABLES DE LA EMPRESA
         public static int ACTIVAREXPRESIONESREGULARESPARAVALIDAR = 1; //valor recomendado -1, (0 desactiva las validaciones)
+        public static int CODIGODEEMPRESAACTIVA = 1;
 
 
         //VARIABLES DEL SISTEMA

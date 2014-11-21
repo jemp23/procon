@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 20-11-2014 a las 03:27:23
--- Versión del servidor: 5.6.12-log
--- Versión de PHP: 5.4.16
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-11-2014 a las 17:42:52
+-- Versión del servidor: 5.5.39
+-- Versión de PHP: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `procon`
 --
-CREATE DATABASE IF NOT EXISTS `procon` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `procon`;
 
 -- --------------------------------------------------------
 
@@ -29,20 +27,29 @@ USE `procon`;
 --
 
 CREATE TABLE IF NOT EXISTS `desperdicio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `fkoperador` int(11) NOT NULL,
   `fkmaquina` int(11) NOT NULL,
-  `cantidad` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `fkunidad_medida` int(11) NOT NULL,
+  `observacion` varchar(150) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `cantidad` double NOT NULL DEFAULT '0',
   `fktipo_desperdicio` int(11) NOT NULL,
   `fkorden_produccion` int(11) NOT NULL,
   `fkusuario` int(11) NOT NULL,
   `fkempresa` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fkoperador` (`fkoperador`,`fkmaquina`,`fkunidad_medida`,`fktipo_desperdicio`,`fkorden_produccion`,`fkusuario`),
-  KEY `fkempresa` (`fkempresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
+  `fechaRegistro` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `desperdicio`
+--
+
+INSERT INTO `desperdicio` (`id`, `fecha`, `fkoperador`, `fkmaquina`, `observacion`, `cantidad`, `fktipo_desperdicio`, `fkorden_produccion`, `fkusuario`, `fkempresa`, `fechaRegistro`) VALUES
+(1, '2014-11-21', 1, 1, 'prueba		', 100, 2, 100, 1, 1, '2014-11-21'),
+(2, '2014-11-20', 2, 2, 'nada	', 150, 2, 100, 1, 1, '2014-11-21'),
+(3, '2014-11-20', 2, 2, 'prueba', 150, 2, 152, 1, 1, '2014-11-21'),
+(4, '2014-11-21', 1, 1, 's', 120, 2, 152, 1, 1, '2014-11-21'),
+(5, '2014-11-21', 2, 2, 's', 12, 2, 152, 1, 1, '2014-11-21');
 
 -- --------------------------------------------------------
 
@@ -51,22 +58,22 @@ CREATE TABLE IF NOT EXISTS `desperdicio` (
 --
 
 CREATE TABLE IF NOT EXISTS `empresa` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `sede` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `rif` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `direccion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=2 ;
+  `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
 INSERT INTO `empresa` (`id`, `sede`, `nombre`, `rif`, `direccion`, `telefono`, `correo`) VALUES
-(1, 'UREÑA', 'INDUSTRIAS Y DISTRIBUCIONES CONDOR, C.A.', 'J09024103-5', 'UREÑA', '02760000000', 'JEMP23@GMAIL.COM');
+(1, 'UREÑA', 'INDUSTRIAS Y DISTRIBUCIONES CONDOR, C.A.', 'J09024103-5', 'UREÑA', '02760000000', 'JEMP23@GMAIL.COM'),
+(2, 'GALPON DE EXTRUSION', 'INDUSTRIAS CONDOR', 'J-09024103-5', 'UREÑA', '', 'CONDOR@CONDOR.COM');
 
 -- --------------------------------------------------------
 
@@ -75,14 +82,12 @@ INSERT INTO `empresa` (`id`, `sede`, `nombre`, `rif`, `direccion`, `telefono`, `
 --
 
 CREATE TABLE IF NOT EXISTS `maquinas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `numero` int(10) NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `fkempresa` int(11) NOT NULL,
-  `fktipo_maquina` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fkempresa` (`fkempresa`,`fktipo_maquina`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=4 ;
+  `fktipo_maquina` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `maquinas`
@@ -91,7 +96,8 @@ CREATE TABLE IF NOT EXISTS `maquinas` (
 INSERT INTO `maquinas` (`id`, `numero`, `descripcion`, `fkempresa`, `fktipo_maquina`) VALUES
 (1, 1, 'MAQUINA 1', 1, 2),
 (2, 2, 'MAQUINA 2', 1, 2),
-(3, 3, 'MAQUINA 3', 0, 0);
+(3, 3, 'MAQUINA 3', 1, 2),
+(4, 1, 'MAQUINA 01', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -100,16 +106,14 @@ INSERT INTO `maquinas` (`id`, `numero`, `descripcion`, `fkempresa`, `fktipo_maqu
 --
 
 CREATE TABLE IF NOT EXISTS `modulos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `direccion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `imagen` varchar(50) COLLATE utf8_spanish2_ci DEFAULT '0',
   `interfaz` int(30) NOT NULL,
   `orden` int(5) NOT NULL,
-  `superior` int(5) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `superior` (`superior`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=23 ;
+  `superior` int(5) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=24 ;
 
 --
 -- Volcado de datos para la tabla `modulos`
@@ -130,7 +134,8 @@ INSERT INTO `modulos` (`id`, `descripcion`, `direccion`, `imagen`, `interfaz`, `
 (12, 'EMPRESAS', 'EMPRESA', '0', 1, 1, 1),
 (13, 'PRODUCCION', '', '5', 1, 2, 1),
 (21, 'OPERADORES', 'OPERADORES', '0', 1, 2, 2),
-(22, 'REGISTRAR DESPERDICIO', 'DESPERDICIOS', '0', 1, 3, 2);
+(22, 'REGISTRAR DESPERDICIO', 'DESPERDICIOS', '0', 1, 3, 2),
+(23, 'MAQUINAS', 'MAQUINAS', '0', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -139,23 +144,47 @@ INSERT INTO `modulos` (`id`, `descripcion`, `direccion`, `imagen`, `interfaz`, `
 --
 
 CREATE TABLE IF NOT EXISTS `operador` (
-  `idOperador` int(11) NOT NULL AUTO_INCREMENT,
+`idOperador` int(11) NOT NULL,
   `nombreOperador` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `telefonoOperador` varchar(11) COLLATE utf8mb4_spanish2_ci NOT NULL,
   `estatus` int(2) NOT NULL DEFAULT '0',
-  `fkSede` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`idOperador`),
-  UNIQUE KEY `idOperador` (`idOperador`),
-  KEY `fkSede` (`fkSede`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci COMMENT='para el registro de los operadores' AUTO_INCREMENT=3 ;
+  `fkSede` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci COMMENT='para el registro de los operadores' AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `operador`
 --
 
 INSERT INTO `operador` (`idOperador`, `nombreOperador`, `telefonoOperador`, `estatus`, `fkSede`) VALUES
-(1, 'JOSE PEREZ', '', 0, 1),
-(2, 'PRUEBA2', '', 0, 1);
+(1, 'JOSE PEREZ', '', 1, 1),
+(2, 'PRUEBA2', '', 1, 1),
+(3, 'PRUEBA3', '', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `operador_tipo_usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `operador_tipo_usuario` (
+`idots` int(11) NOT NULL COMMENT 'ID',
+  `fkOperador` int(11) NOT NULL,
+  `fkTipoUsuario` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci COMMENT='operador tipo de usuarios' AUTO_INCREMENT=14 ;
+
+--
+-- Volcado de datos para la tabla `operador_tipo_usuario`
+--
+
+INSERT INTO `operador_tipo_usuario` (`idots`, `fkOperador`, `fkTipoUsuario`) VALUES
+(4, 2, 7),
+(6, 1, 8),
+(8, 2, 1),
+(9, 1, 2),
+(10, 2, 2),
+(11, 3, 1),
+(12, 3, 3),
+(13, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -164,9 +193,8 @@ INSERT INTO `operador` (`idOperador`, `nombreOperador`, `telefonoOperador`, `est
 --
 
 CREATE TABLE IF NOT EXISTS `orden_produccion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `numero` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
+`id` int(11) NOT NULL,
+  `numero` varchar(30) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -176,11 +204,9 @@ CREATE TABLE IF NOT EXISTS `orden_produccion` (
 --
 
 CREATE TABLE IF NOT EXISTS `permisos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `fk_tipousuario` int(11) NOT NULL,
-  `fk_tipomodulo` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_tipousuario` (`fk_tipousuario`,`fk_tipomodulo`)
+  `fk_tipomodulo` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=28 ;
 
 --
@@ -210,9 +236,8 @@ INSERT INTO `permisos` (`id`, `fk_tipousuario`, `fk_tipomodulo`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_desperdicio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
+`id` int(11) NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=4 ;
 
 --
@@ -231,10 +256,9 @@ INSERT INTO `tipo_desperdicio` (`id`, `descripcion`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=7 ;
+`id` int(11) NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
@@ -243,10 +267,12 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
 INSERT INTO `tipo_usuario` (`id`, `descripcion`) VALUES
 (1, 'SISTEMAS'),
 (2, 'JEFE PRODUCCION'),
-(3, 'OPERADOR'),
+(3, 'OPERADOR EXTRUSOR'),
 (4, 'DIRECTIVO'),
 (5, 'JEFE ADMINISTRACION'),
-(6, 'AISTENTE DE VENTAS');
+(6, 'AISTENTE DE VENTAS'),
+(7, 'OPERADOR SELLADOR'),
+(8, 'OPERADOR IMPRESOR');
 
 -- --------------------------------------------------------
 
@@ -255,9 +281,8 @@ INSERT INTO `tipo_usuario` (`id`, `descripcion`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `unidadmedida` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
+`id` int(11) NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -267,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `unidadmedida` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nombres` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `apellidos` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `correo` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -276,8 +301,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `clave` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `remoto` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `foto` longblob,
-  `nivel` int(3) NOT NULL,
-  PRIMARY KEY (`id`)
+  `nivel` int(3) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=7 ;
 
 --
@@ -299,11 +323,9 @@ INSERT INTO `usuario` (`id`, `nombres`, `apellidos`, `correo`, `celular`, `usuar
 --
 
 CREATE TABLE IF NOT EXISTS `usuario_sede` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `fkusuario` int(11) NOT NULL,
-  `fkempresa` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fkusuario` (`fkusuario`,`fkempresa`)
+  `fkempresa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -313,11 +335,9 @@ CREATE TABLE IF NOT EXISTS `usuario_sede` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuario_tipousuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `fkusuario` int(11) NOT NULL,
-  `fktipo_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fkusuario` (`fkusuario`,`fktipo_usuario`)
+  `fktipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=24 ;
 
 --
@@ -337,6 +357,168 @@ INSERT INTO `usuario_tipousuario` (`id`, `fkusuario`, `fktipo_usuario`) VALUES
 (23, 5, 2),
 (22, 5, 6);
 
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `desperdicio`
+--
+ALTER TABLE `desperdicio`
+ ADD PRIMARY KEY (`id`), ADD KEY `fkoperador` (`fkoperador`,`fkmaquina`,`fktipo_desperdicio`,`fkorden_produccion`,`fkusuario`), ADD KEY `fkempresa` (`fkempresa`);
+
+--
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `maquinas`
+--
+ALTER TABLE `maquinas`
+ ADD PRIMARY KEY (`id`), ADD KEY `fkempresa` (`fkempresa`,`fktipo_maquina`);
+
+--
+-- Indices de la tabla `modulos`
+--
+ALTER TABLE `modulos`
+ ADD PRIMARY KEY (`id`), ADD KEY `superior` (`superior`);
+
+--
+-- Indices de la tabla `operador`
+--
+ALTER TABLE `operador`
+ ADD PRIMARY KEY (`idOperador`), ADD UNIQUE KEY `idOperador` (`idOperador`), ADD KEY `fkSede` (`fkSede`);
+
+--
+-- Indices de la tabla `operador_tipo_usuario`
+--
+ALTER TABLE `operador_tipo_usuario`
+ ADD PRIMARY KEY (`idots`), ADD UNIQUE KEY `idots` (`idots`);
+
+--
+-- Indices de la tabla `orden_produccion`
+--
+ALTER TABLE `orden_produccion`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+ ADD PRIMARY KEY (`id`), ADD KEY `fk_tipousuario` (`fk_tipousuario`,`fk_tipomodulo`);
+
+--
+-- Indices de la tabla `tipo_desperdicio`
+--
+ALTER TABLE `tipo_desperdicio`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `unidadmedida`
+--
+ALTER TABLE `unidadmedida`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario_sede`
+--
+ALTER TABLE `usuario_sede`
+ ADD PRIMARY KEY (`id`), ADD KEY `fkusuario` (`fkusuario`,`fkempresa`);
+
+--
+-- Indices de la tabla `usuario_tipousuario`
+--
+ALTER TABLE `usuario_tipousuario`
+ ADD PRIMARY KEY (`id`), ADD KEY `fkusuario` (`fkusuario`,`fktipo_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `desperdicio`
+--
+ALTER TABLE `desperdicio`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `maquinas`
+--
+ALTER TABLE `maquinas`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `modulos`
+--
+ALTER TABLE `modulos`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT de la tabla `operador`
+--
+ALTER TABLE `operador`
+MODIFY `idOperador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `operador_tipo_usuario`
+--
+ALTER TABLE `operador_tipo_usuario`
+MODIFY `idots` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT de la tabla `orden_produccion`
+--
+ALTER TABLE `orden_produccion`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT de la tabla `tipo_desperdicio`
+--
+ALTER TABLE `tipo_desperdicio`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT de la tabla `unidadmedida`
+--
+ALTER TABLE `unidadmedida`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `usuario_sede`
+--
+ALTER TABLE `usuario_sede`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `usuario_tipousuario`
+--
+ALTER TABLE `usuario_tipousuario`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

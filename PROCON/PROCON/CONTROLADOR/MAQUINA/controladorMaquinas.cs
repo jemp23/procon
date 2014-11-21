@@ -202,6 +202,32 @@ namespace PROCON.CONTROLADOR.MAQUINAS
 
                 entidad.Id = Convert.ToInt16(lector["id"].ToString());
                 entidad.Numero = Convert.ToInt16(lector["numero"].ToString());
+                entidad.Descripcion = lector["descripcion"].ToString();
+                Lista.Add(entidad);
+            }
+            lector.Close();
+            cnn.Close();
+            return Lista;
+        }
+        public static List<entidadMaquinas> listarPorTipo(int tipo) //me muestra la lista de un registro
+        {
+            List<entidadMaquinas> Lista = new List<entidadMaquinas>();
+
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT * FROM maquinas where fktipo_maquina =@fktipo_maquina ORDER BY numero;";
+            comando.Parameters.AddWithValue("@fktipo_maquina", tipo);
+            MySqlDataReader lector = comando.ExecuteReader();
+
+
+            while (lector.Read())
+            {
+                entidadMaquinas entidad = new entidadMaquinas();
+
+                entidad.Id = Convert.ToInt16(lector["id"].ToString());
+                entidad.Numero = Convert.ToInt16(lector["numero"].ToString());
+                entidad.Descripcion = lector["descripcion"].ToString();
                 Lista.Add(entidad);
             }
             lector.Close();

@@ -102,7 +102,7 @@ namespace PROCON.VISTA.SESION
                 {
 
                     case "DESPERDICIOS":
-                        DESPERDICIO.desperdicio.DefInstance.MdiParent = this;
+                        //DESPERDICIO.desperdicio.DefInstance.MdiParent = this;
                         DESPERDICIO.desperdicio.DefInstance.Show();
                         break;
                     case "OPERADORES":

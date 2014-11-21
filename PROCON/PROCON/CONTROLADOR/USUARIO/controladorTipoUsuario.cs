@@ -440,5 +440,111 @@ namespace PROCON.CONTROLADOR.USUARIO
             }
         }
         ///metodos comunes en todos los formularios
+        public static DataSet listarPerfilesdeUnOperador(int fkOperador)
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand(" SELECT tipo_desperdicio.id, tipo_desperdicio.descripcion " +
+                                       " FROM operador_tipo_usuario INNER JOIN tipo_desperdicio ON operador_tipo_usuario.fkTipoUsuario = tipo_desperdicio.id " +
+                                       " WHERE (((operador_tipo_usuario.fkOperador)=@fkOperador)) " +
+                                       " ORDER BY tipo_desperdicio.descripcion;");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+                cmd.Parameters.AddWithValue("@fkOperador", fkOperador);
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static DataSet listarPerfilesDisponiblesDeUnOperador()
+        {
+            MySqlConnection connection;
+            MySqlCommand cmd;
+            MySqlDataAdapter da;
+            connection = null;
+            cmd = null;
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter();
+
+            try
+            {
+                cmd = new MySqlCommand("SELECT * from tipo_desperdicio");
+                cmd.CommandType = CommandType.Text;
+                da.SelectCommand = (MySqlCommand)cmd;
+
+                Conexion con = new Conexion();
+                connection = con.getConexion();
+                cmd.Connection = connection;
+                //connection.Open();
+                // fill the dataset
+                da.Fill(ds);
+            }
+            catch
+            {
+                throw;  // exception occurred here
+            }
+            finally
+            {
+                if (da != null)
+                    da.Dispose();
+                if (cmd != null)
+                    cmd.Dispose();
+                // implicitly calls close()
+                connection.Dispose();
+            }
+            connection.Close();
+            return ds;
+        }
+        public static int consultarSiElOperadorTieneElModuloAsignado(int fkOperador, int fkTipoUsuario)
+        {
+            int max = 0;
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT operador_tipo_usuario.idots FROM operador_tipo_usuario WHERE (((operador_tipo_usuario.fkOperador)=@fkOperador) AND ((operador_tipo_usuario.fkTipoUsuario)=@fkTipoUsuario));";
+
+            comando.Parameters.AddWithValue("@fkOperador", fkOperador);
+            comando.Parameters.AddWithValue("@fkTipoUsuario", fkTipoUsuario);
+
+
+            MySqlDataReader lector = comando.ExecuteReader();
+
+            if (lector.Read())
+            {
+                max = Convert.ToInt32(lector["idots"].ToString());
+            }
+            lector.Close();
+            cnn.Close();
+            return max;
+        }
+        
     }
 }

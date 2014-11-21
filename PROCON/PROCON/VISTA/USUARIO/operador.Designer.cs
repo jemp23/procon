@@ -38,6 +38,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbEstatus = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cmbFkSede = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtModificando = new System.Windows.Forms.TextBox();
@@ -52,6 +54,9 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dgListado = new System.Windows.Forms.DataGridView();
+            this.idOperador = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.nombreOperador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoOperador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.NUEVOREGISTRO = new System.Windows.Forms.ToolStripButton();
             this.totalR = new System.Windows.Forms.ToolStripLabel();
@@ -72,11 +77,6 @@
             this.salir = new System.Windows.Forms.ToolStripButton();
             this.label18 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cmbEstatus = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.idOperador = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.nombreOperador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoOperador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabFormulario.SuspendLayout();
             this.tabDatos.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -150,6 +150,7 @@
             this.treeView2.Scrollable = false;
             this.treeView2.Size = new System.Drawing.Size(170, 244);
             this.treeView2.TabIndex = 42;
+            this.treeView2.DoubleClick += new System.EventHandler(this.treeView2_DoubleClick);
             // 
             // label9
             // 
@@ -174,6 +175,7 @@
             this.treeView1.Scrollable = false;
             this.treeView1.Size = new System.Drawing.Size(170, 244);
             this.treeView1.TabIndex = 4;
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // groupBox1
             // 
@@ -198,6 +200,26 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DEL OPERADOR";
+            // 
+            // cmbEstatus
+            // 
+            this.cmbEstatus.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstatus.FormattingEnabled = true;
+            this.cmbEstatus.Location = new System.Drawing.Point(146, 155);
+            this.cmbEstatus.Name = "cmbEstatus";
+            this.cmbEstatus.Size = new System.Drawing.Size(191, 26);
+            this.cmbEstatus.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(81, 163);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 18);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "ESTATUS";
             // 
             // cmbFkSede
             // 
@@ -356,6 +378,27 @@
             this.dgListado.TabIndex = 0;
             this.dgListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListado_CellContentClick);
             // 
+            // idOperador
+            // 
+            this.idOperador.DataPropertyName = "idOperador";
+            this.idOperador.HeaderText = "CODIGO";
+            this.idOperador.Name = "idOperador";
+            this.idOperador.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // nombreOperador
+            // 
+            this.nombreOperador.DataPropertyName = "nombreOperador";
+            this.nombreOperador.HeaderText = "NOMBRES";
+            this.nombreOperador.Name = "nombreOperador";
+            this.nombreOperador.Width = 300;
+            // 
+            // telefonoOperador
+            // 
+            this.telefonoOperador.DataPropertyName = "telefonoOperador";
+            this.telefonoOperador.HeaderText = "TELEFONO";
+            this.telefonoOperador.Name = "telefonoOperador";
+            this.telefonoOperador.Width = 200;
+            // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.NUEVOREGISTRO;
@@ -388,7 +431,7 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.bindingNavigator1.Size = new System.Drawing.Size(892, 37);
+            this.bindingNavigator1.Size = new System.Drawing.Size(908, 37);
             this.bindingNavigator1.TabIndex = 42;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -543,57 +586,16 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(0, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(892, 39);
+            this.label18.Size = new System.Drawing.Size(908, 39);
             this.label18.TabIndex = 41;
             this.label18.Text = "Control de Operadores";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cmbEstatus
-            // 
-            this.cmbEstatus.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstatus.FormattingEnabled = true;
-            this.cmbEstatus.Location = new System.Drawing.Point(146, 155);
-            this.cmbEstatus.Name = "cmbEstatus";
-            this.cmbEstatus.Size = new System.Drawing.Size(191, 26);
-            this.cmbEstatus.TabIndex = 51;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(81, 163);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 18);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "ESTATUS";
-            // 
-            // idOperador
-            // 
-            this.idOperador.DataPropertyName = "idOperador";
-            this.idOperador.HeaderText = "CODIGO";
-            this.idOperador.Name = "idOperador";
-            this.idOperador.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // nombreOperador
-            // 
-            this.nombreOperador.DataPropertyName = "nombreOperador";
-            this.nombreOperador.HeaderText = "NOMBRES";
-            this.nombreOperador.Name = "nombreOperador";
-            this.nombreOperador.Width = 300;
-            // 
-            // telefonoOperador
-            // 
-            this.telefonoOperador.DataPropertyName = "telefonoOperador";
-            this.telefonoOperador.HeaderText = "TELEFONO";
-            this.telefonoOperador.Name = "telefonoOperador";
-            this.telefonoOperador.Width = 200;
             // 
             // operador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 478);
+            this.ClientSize = new System.Drawing.Size(908, 478);
             this.Controls.Add(this.tabFormulario);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.label18);
@@ -603,6 +605,7 @@
             this.Name = "operador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "operador";
+            this.Load += new System.EventHandler(this.usuario_Load);
             this.tabFormulario.ResumeLayout(false);
             this.tabDatos.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

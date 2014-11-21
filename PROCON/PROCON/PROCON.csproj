@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FirebirdSql.Data.FirebirdClient">
-      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.4.5.2.0\lib\net45\FirebirdSql.Data.FirebirdClient.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -54,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONEXION\Conexion.cs" />
-    <Compile Include="CONEXION\ConexionFB.cs" />
     <Compile Include="CONTROLADOR\abstractControlador.cs" />
     <Compile Include="CONTROLADOR\EMPRESA\controladorEmpresa.cs" />
     <Compile Include="CONTROLADOR\MAQUINA\controladorMaquinas.cs" />
     <Compile Include="CONTROLADOR\SESION\sesion.cs" />
+    <Compile Include="CONTROLADOR\TIPO_DESPERDICIO\controladorDesperdicio.cs" />
     <Compile Include="CONTROLADOR\TIPO_DESPERDICIO\controladorTipo_desperdicio.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorModulos.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorOperador.cs" />
@@ -66,10 +63,14 @@
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\controladorUsuarioTipoUsuario.cs" />
     <Compile Include="CONTROLADOR\USUARIO\entidadModulostusuario.cs" />
+    <Compile Include="MODELO\entidadCaracteristicasproducto.cs" />
+    <Compile Include="MODELO\entidadDesperdicio.cs" />
     <Compile Include="MODELO\entidadEmpresa.cs" />
     <Compile Include="MODELO\entidadMaquinas.cs" />
     <Compile Include="MODELO\entidadModulos.cs" />
     <Compile Include="MODELO\entidadOperador.cs" />
+    <Compile Include="MODELO\entidadOperadorTipoUsuario.cs" />
+    <Compile Include="MODELO\entidadTiposcaracteristicas.cs" />
     <Compile Include="MODELO\entidadTipoUsuario.cs" />
     <Compile Include="MODELO\entidadTipo_desperdicio.cs" />
     <Compile Include="MODELO\entidadUsuario.cs" />

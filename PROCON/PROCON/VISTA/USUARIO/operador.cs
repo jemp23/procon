@@ -225,8 +225,8 @@ namespace PROCON.VISTA.USUARIO
 
                 if (txtIdOperador.Text != "")
                 {
-                    //llenarPerfilesUsuario(Convert.ToInt16(txtIdOperador.Text));
-                    //llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
+                    llenarPerfilesOperador(Convert.ToInt16(txtIdOperador.Text));
+                    llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
                 }
             }
             catch (Exception eX)
@@ -375,7 +375,7 @@ namespace PROCON.VISTA.USUARIO
                 MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void llenarPerfilesUsuario(int idUsuario)
+        private void llenarPerfilesOperador(int idOperador)
         {
             try
             {
@@ -383,7 +383,7 @@ namespace PROCON.VISTA.USUARIO
                 limpiarTreeView();
                 // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
 
-                DataTable dt = controladorTipoUsuario.listarPerfilesdeUnUsuario(idUsuario).Tables[0];
+                DataTable dt = controladorTipoUsuario.listarPerfilesdeUnOperador(idOperador).Tables[0];
                 DataView dataViewHijos = dt.DefaultView;
 
                 // Agregar al TreeView los nodos Hijos que se han obtenido en el DataView.
@@ -401,13 +401,13 @@ namespace PROCON.VISTA.USUARIO
             }
 
         }
-        private void llenarPerfiles(int idUsuario)
+        private void llenarPerfiles(int idOperador)
         {
             try
             {
                 // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
 
-                DataTable dt = controladorTipoUsuario.listarPerfilesDisponibles().Tables[0];
+                DataTable dt = controladorTipoUsuario.listarPerfilesDisponiblesDeUnOperador().Tables[0];
                 DataView dataViewHijos = dt.DefaultView;
 
 
@@ -419,7 +419,7 @@ namespace PROCON.VISTA.USUARIO
                     nuevoNodo.Tag = dataRowCurrent["id"].ToString().Trim();
                     //
 
-                    int total = controladorTipoUsuario.consultarSiElUsuarioTieneElModuloAsignado(idUsuario, Convert.ToInt16(dataRowCurrent["id"].ToString().Trim()));
+                    int total = controladorTipoUsuario.consultarSiElOperadorTieneElModuloAsignado(idOperador, Convert.ToInt16(dataRowCurrent["id"].ToString().Trim()));
 
                     if (total == 0) treeView2.Nodes.Add(nuevoNodo);
                 }
@@ -450,7 +450,7 @@ namespace PROCON.VISTA.USUARIO
             {
                 if (txtIdOperador.Text != "")
                 {
-                    llenarPerfilesUsuario(Convert.ToInt16(txtIdOperador.Text));
+                    llenarPerfilesOperador(Convert.ToInt16(txtIdOperador.Text));
                     llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
                 }
             }
@@ -469,16 +469,16 @@ namespace PROCON.VISTA.USUARIO
                 string nodoSeleccionado = node.Tag.ToString();
 
                 controladorUsuarioTipoUsuario conutu = new controladorUsuarioTipoUsuario();
-                entidadUsuarioTipoUsuario entUtu = new entidadUsuarioTipoUsuario();
+                entidadOperadorTipoUsuario entOtu = new entidadOperadorTipoUsuario();
 
-                entUtu.Fktipo_usuario = Convert.ToInt32(nodoSeleccionado);
-                entUtu.Fkusuario = Convert.ToInt32(txtIdOperador.Text);
+                entOtu.FkTipoUsuario = Convert.ToInt32(nodoSeleccionado);
+                entOtu.FkOperador = Convert.ToInt32(txtIdOperador.Text);
 
-                int res = conutu.nuevo(entUtu);
+                int res = conutu.nuevo(entOtu);
 
                 if (res > 0)
                 {
-                    llenarPerfilesUsuario(Convert.ToInt16(txtIdOperador.Text));
+                    llenarPerfilesOperador(Convert.ToInt16(txtIdOperador.Text));
                     llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
                 }
 
@@ -498,16 +498,16 @@ namespace PROCON.VISTA.USUARIO
                 string nodoSeleccionado = node.Tag.ToString();
 
                 controladorUsuarioTipoUsuario conutu = new controladorUsuarioTipoUsuario();
-                entidadUsuarioTipoUsuario entUtu = new entidadUsuarioTipoUsuario();
+                entidadOperadorTipoUsuario entotu = new entidadOperadorTipoUsuario();
 
-                entUtu.Fktipo_usuario = Convert.ToInt32(nodoSeleccionado);
-                entUtu.Fkusuario = Convert.ToInt32(txtIdOperador.Text);
+                entotu.FkTipoUsuario = Convert.ToInt32(nodoSeleccionado);
+                entotu.FkOperador = Convert.ToInt32(txtIdOperador.Text);
 
-                int res = conutu.eliminar(entUtu);
+                int res = conutu.eliminar(entotu);
 
                 if (res > 0)
                 {
-                    llenarPerfilesUsuario(Convert.ToInt16(txtIdOperador.Text));
+                    llenarPerfilesOperador(Convert.ToInt16(txtIdOperador.Text));
                     llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
                 }
 
@@ -518,33 +518,5 @@ namespace PROCON.VISTA.USUARIO
             }
         }
 
-        private void treeView1_DragDrop(object sender, DragEventArgs e)
-        {
-            try
-            {
-
-                TreeNode node = treeView1.SelectedNode;
-                string nodoSeleccionado = node.Tag.ToString();
-
-                controladorUsuarioTipoUsuario conutu = new controladorUsuarioTipoUsuario();
-                entidadUsuarioTipoUsuario entUtu = new entidadUsuarioTipoUsuario();
-
-                entUtu.Fktipo_usuario = Convert.ToInt32(nodoSeleccionado);
-                entUtu.Fkusuario = Convert.ToInt32(txtIdOperador.Text);
-
-                int res = conutu.eliminar(entUtu);
-
-                if (res > 0)
-                {
-                    llenarPerfilesUsuario(Convert.ToInt16(txtIdOperador.Text));
-                    llenarPerfiles(Convert.ToInt16(txtIdOperador.Text));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

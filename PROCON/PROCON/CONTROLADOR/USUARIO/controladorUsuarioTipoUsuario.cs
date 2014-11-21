@@ -36,6 +36,32 @@ namespace PROCON.CONTROLADOR.USUARIO
                 return 0;
             }
         }
+        public int nuevo(entidadOperadorTipoUsuario otu)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "INSERT INTO operador_tipo_usuario " +
+                " (FkOperador, FkTipoUsuario) " +
+                " VALUES " +
+                " (@FkOperador, @FkTipoUsuario) " +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@FkOperador", otu.FkOperador);
+                comando.Parameters.AddWithValue("@FkTipoUsuario", otu.FkTipoUsuario);
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
         public int eliminar(entidadUsuarioTipoUsuario utu)
         {
             try
@@ -49,6 +75,31 @@ namespace PROCON.CONTROLADOR.USUARIO
                 comando = new MySqlCommand(query, conexion);
                 comando.Parameters.AddWithValue("@Fkusuario", utu.Fkusuario);
                 comando.Parameters.AddWithValue("@Fktipo_usuario", utu.Fktipo_usuario);
+
+                int Resultado = comando.ExecuteNonQuery();
+
+                conexion.Close();
+                base.transaccionFinalizada();
+                return Resultado;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int eliminar(entidadOperadorTipoUsuario otu)
+        {
+            try
+            {
+                MySqlConnection conexion = base.getConexion();
+                MySqlCommand comando;
+                string query = "delete from operador_tipo_usuario " +
+                " where FkOperador=@FkOperador and FkTipoUsuario=@FkTipoUsuario" +
+                ";";
+
+                comando = new MySqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@FkOperador", otu.FkOperador);
+                comando.Parameters.AddWithValue("@FkTipoUsuario", otu.FkTipoUsuario);
 
                 int Resultado = comando.ExecuteNonQuery();
 

@@ -182,6 +182,34 @@ namespace PROCON.CONTROLADOR.USUARIO
             }
         }
         ///metodos comunes en todos los formularios
+        ///
+        public static List<entidadOperador> listarPorTipo(int fkTipoUsuario, int fkSede) //me muestra la lista de un registro
+        {
+            List<entidadOperador> Lista = new List<entidadOperador>();
+
+            Conexion con = new Conexion();
+            MySqlConnection cnn = con.getConexion();
+            MySqlCommand comando = cnn.CreateCommand();
+            comando.CommandText = "SELECT operador.idOperador, operador.nombreOperador, operador.estatus " +
+                                  " FROM operador INNER JOIN operador_tipo_usuario ON operador.idOperador = operador_tipo_usuario.fkOperador " +
+                                  " WHERE (((operador.estatus)=1) AND ((operador.fkSede)=@fkSede) AND ((operador_tipo_usuario.fkTipoUsuario)=@fkTipoUsuario));";
+            comando.Parameters.AddWithValue("@fkTipoUsuario", fkTipoUsuario);
+            comando.Parameters.AddWithValue("@fkSede", fkSede);
+            MySqlDataReader lector = comando.ExecuteReader();
+
+
+            while (lector.Read())
+            {
+                entidadOperador entidad = new entidadOperador();
+
+                entidad.IdOperador = Convert.ToInt16(lector["idOperador"].ToString());
+                entidad.NombreOperador = lector["nombreOperador"].ToString();
+                Lista.Add(entidad);
+            }
+            lector.Close();
+            cnn.Close();
+            return Lista;
+        }
 
     }
 }
