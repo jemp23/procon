@@ -21,7 +21,7 @@ namespace PROCON.CONTROLADOR.SESION
 
         //VARIABLES DE LA MAQUINA
         public static string IMPRESORAFACTURA = "Microsoft XPS Document Writer"; //"\\\\192.168.0.53\\EPSON T50 DIVI";
-        public static string IMPRESORADEROTULOS = "ROTULO";
+        public static string IMPRESORADEROTULOS = "Microsoft XPS Document Writer";
         public static string IMPRESORADEUTM = "Microsoft XPS Document Writer";
         public static string IMPRESORADERESULTADOS = "Microsoft XPS Document Writer";
         public static string IMPRESORACARNET = "Microsoft XPS Document Writer";

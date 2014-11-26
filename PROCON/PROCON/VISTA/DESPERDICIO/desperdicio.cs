@@ -13,11 +13,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
+using PROCON.DATASET;
 
 namespace PROCON.VISTA.DESPERDICIO
 {
     public partial class desperdicio : Form
     {
+        #region Variables
+        dsImpresionRotuloDesperdicio impresionRotuloDesperdicio;
+
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+        FontFamily ff;
+        Font font;
+        #endregion Variables
         private static desperdicio m_FormDefInstance;
         /// Crea una instancia unica del Formulario
         public static desperdicio DefInstance
@@ -105,8 +116,19 @@ namespace PROCON.VISTA.DESPERDICIO
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void cmbfktipo_desperdicio_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                actualizaCombos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "FALLO DE SISTEMA AL INTENTAR LLENAR LOS COMBOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void actualizaCombos()
         {
             try
             {
@@ -120,7 +142,7 @@ namespace PROCON.VISTA.DESPERDICIO
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "FALLO DE SISTEMA AL INTENTAR LLENAR LOS COMBOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }       
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -139,7 +161,7 @@ namespace PROCON.VISTA.DESPERDICIO
                     entidad.Fecha = Convert.ToDateTime(fecha.Text);
                     entidad.Fkorden_produccion = Convert.ToInt32( txtFkorden_produccion.Text);
                     entidad.Fkmaquina = Convert.ToInt16(cmbFkmaquina.SelectedValue);
-                    entidad.Fkoperador = Convert.ToInt16(cmbFkmaquina.SelectedValue);
+                    entidad.Fkoperador = Convert.ToInt16(cmbFkoperador.SelectedValue);
                     entidad.Observacion = txtObservacion.Text;
                     entidad.Cantidad = Convert.ToDouble(txtCantidad.Text);
                     entidad.Fkempresa = sesion.CODIGODEEMPRESAACTIVA;
@@ -148,7 +170,24 @@ namespace PROCON.VISTA.DESPERDICIO
 
                     int Resultado;
 
+
+                    if (txtId.Text == "...")
+                    {
+
                         Resultado = controlador.nuevo(entidad);
+                    }
+                    else
+                    {
+                        string r = MessageBox.Show("¿DESEA MODIFICAR EL REGISTRO ACTURAL?", sesion.NOMBREAPLICACION, MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+
+                        if (r == "Yes")
+                        {
+                            entidad.Id = Convert.ToInt32(txtId.Text);
+                            Resultado = controlador.modificar(entidad);
+                        }
+                        else Resultado = 0;
+
+                    }
 
 
 
@@ -159,15 +198,11 @@ namespace PROCON.VISTA.DESPERDICIO
                     }
                     else
                     {
+                        controladorDesperdicio conDes = new controladorDesperdicio();
+                        Int32 ultimo = conDes.idUltimoRegistrado();
                         cargarDataGrid();
-                        cmbFkmaquina.Enabled = false;
-                        cmbFkoperador.Enabled = false;
-                        txtObservacion.Enabled = false;
-                        txtCantidad.Enabled = false;
-                        txtCantidad.Text = "";
-                        txtObservacion.Text = "";
-                        cmbfktipo_desperdicio.Focus();
-
+                        desactivarCampos();
+                        imprimirRotulo(ultimo);
                         //MessageBox.Show("REGISTRO ACTUALIZADO", "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
@@ -196,6 +231,25 @@ namespace PROCON.VISTA.DESPERDICIO
                         MessageBox.Show("DEBE INGRESAR  UNA CANTIDAD VALIDA", "VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.txtCantidad.Focus();
                         Res = false;
+                    }
+
+                    else
+                    {
+                        if (this.cmbFkmaquina.SelectedValue == "" || this.cmbFkmaquina.SelectedValue == null)
+                        {
+                            MessageBox.Show("DEBE SELECCIONAR UNA MAQUINA", "VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.cmbFkmaquina.Focus();
+                            Res = false;
+                        }
+                        else
+                        {
+                            if (this.cmbFkoperador.SelectedValue == "" || this.cmbFkoperador.SelectedValue == null)
+                            {
+                                MessageBox.Show("DEBE SELECCIONAR UN OPERADOR", "VALIDACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.cmbFkoperador.Focus();
+                                Res = false;
+                            }
+                        }
                     }
 
                 }
@@ -233,7 +287,6 @@ namespace PROCON.VISTA.DESPERDICIO
             }
 
         }
-
         private void btnGuardar2_Click(object sender, EventArgs e)
         {
 
@@ -246,5 +299,162 @@ namespace PROCON.VISTA.DESPERDICIO
                 MessageBox.Show(ex.ToString(), "FALLO DE SISTEMA AL NAVEGAR POR LOS REGISTROS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void dgListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && e.ColumnIndex == 0)
+                {
+                    //selecciono la fila donde se realizo el clic
+                    string id = dgListado[e.ColumnIndex, e.RowIndex].Value.ToString();
+
+                    txtId.Text = id;
+
+                    //busco los datos del registro
+                    entidadDesperdicio esteDesperdicio = controladorDesperdicio.examinarPorId(Convert.ToInt32( id));
+
+                    cmbfktipo_desperdicio.SelectedValue = esteDesperdicio.Fktipo_desperdicio;
+
+                    actualizaCombos();
+
+                    fecha.Text = esteDesperdicio.Fecha.ToString();
+                    txtFkorden_produccion.Text = esteDesperdicio.Fkorden_produccion.ToString();
+                    cmbFkmaquina.SelectedValue = esteDesperdicio.Fkmaquina;
+                    cmbFkoperador.SelectedValue = esteDesperdicio.Fkoperador;
+                    txtObservacion.Text = esteDesperdicio.Observacion;
+                    txtCantidad.Text = esteDesperdicio.Cantidad.ToString();
+
+
+
+
+               }
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show(eX.ToString(), "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void NUEVOREGISTRO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                llenaCombos();
+                desactivarCampos(); 
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show(eX.ToString(), "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void desactivarCampos()
+        {
+            try
+            {
+                cmbFkmaquina.Enabled = false;
+                cmbFkoperador.Enabled = false;
+                txtObservacion.Enabled = false;
+                txtCantidad.Enabled = false;
+                txtId.Text = "...";
+                txtCantidad.Text = "";
+                txtObservacion.Text = "";
+                cmbfktipo_desperdicio.Focus();
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show(eX.ToString(), "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void imprimirRotulo(Int32 id)
+        {
+            try
+            {
+                    //cargo los valores del dataset 
+                    impresionRotuloDesperdicio = controladorDsImpresionRotuloDesperdicio.examinarPorId(id);
+                    
+                    printRotulo.PrinterSettings.PrinterName = sesion.IMPRESORADEROTULOS;
+                    printRotulo.Print();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void printRotulo_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                CargarFuente();
+                e.Graphics.DrawString("CODIGO: "+ impresionRotuloDesperdicio.Id.ToString(), new Font("Arial", 10, FontStyle.Bold), Brushes.Black, 45, 4);
+                e.Graphics.DrawString("ORDEN : "+impresionRotuloDesperdicio.Fkorden_produccion.ToString(), new Font("Arial", 8, FontStyle.Bold), Brushes.Black, 45, 18);
+                e.Graphics.DrawString(impresionRotuloDesperdicio.Maquina+ " "+impresionRotuloDesperdicio.NombreOperador, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, 45, 40);
+                e.Graphics.DrawString("PESO  : "+impresionRotuloDesperdicio.Cantidad.ToString()+" Kgs", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, 45, 50);
+                
+               e.Graphics.DrawString(FormatBarCode(impresionRotuloDesperdicio.Id.ToString()), font, Brushes.Black, 45, 65);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void printRotulo_EndPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CargarFuente()
+        {
+             try
+            {
+            // CREO EL BYTE[] Y TOMO SU LONGITUD
+            byte[] fontArray = PROCON.Properties.Resources.fre3of9x;
+            int dataLength = PROCON.Properties.Resources.fre3of9x.Length;
+
+
+            // ASIGNO MEMORIA Y COPIO BYTE[] EN LA DIRECCION
+            IntPtr ptrData = Marshal.AllocCoTaskMem(dataLength);
+            Marshal.Copy(fontArray, 0, ptrData, dataLength);
+
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(ptrData, (uint)fontArray.Length, IntPtr.Zero, ref cFonts);
+
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            //PASO LA FUENTE A LA PRIVATEFONTCOLLECTION
+            pfc.AddMemoryFont(ptrData, dataLength);
+
+            //LIBERO LA MEMORIA "UNSAFE"
+            Marshal.FreeCoTaskMem(ptrData);
+
+            ff = pfc.Families[0];
+            font = new Font(ff, 25);
+            }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+        }
+        private string FormatBarCode(string code)
+        {
+            try
+            {
+                string barcode = string.Empty;
+                barcode = string.Format("*{0}*", code);
+                return barcode;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), sesion.NOMBREAPLICACION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+             
     }
 }
