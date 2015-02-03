@@ -287,12 +287,36 @@ namespace PROCON.VISTA.DESPERDICIO
             }
 
         }
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            txtCantidad.Text = serialPort1.ReadExisting();
+        }
+        private void leerPeso()
+        {
+            try
+            {
+            serialPort1.Open();
+            serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler( serialPort1_DataReceived);
+            serialPort1.Close();
+           
+            }
+            catch (Exception eX)
+            {
+                MessageBox.Show("NO SE PUDO LEER EL PESO", "FALLO LA APLICACION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnGuardar2_Click(object sender, EventArgs e)
         {
 
             try
             {
-                btnGuardar.PerformClick();
+
+//
+
+
+
+                leerPeso();
+               // btnGuardar.PerformClick();
             }
             catch (Exception ex)
             {
@@ -455,6 +479,8 @@ namespace PROCON.VISTA.DESPERDICIO
                 return null;
             }
         }
+
+
              
     }
 }

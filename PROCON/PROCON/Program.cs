@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using PROCON.CONEXION;
 using PROCON.VISTA.SESION;
 using System.Configuration;
+using PROCON.UTILIDADES;
 
 namespace laboratorius
 {
@@ -37,8 +38,9 @@ namespace laboratorius
 
 
             }
-            else Application.Run(new acceso());
-
+            //else Application.Run(new acceso());
+            else Application.Run(new frmTestPuertoSerie());
+                 
 
 
             //encripto la conexion

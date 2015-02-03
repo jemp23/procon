@@ -19,3 +19,4 @@ C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.csprojResolveAssemblyReference.c
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.MAQUINAS.maquinas.resources
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.USUARIO.operador.resources
 C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.VISTA.DESPERDICIO.desperdicio.resources
+C:\CONDOR\procon\PROCON\PROCON\obj\Debug\PROCON.UTILIDADES.frmTestPuertoSerie.resources
